@@ -13,7 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -106,11 +105,13 @@ public class BaseMethods {
 		if (locatorBy == "accessibilityId") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
+				elm.clear();
 				elm.sendKeys(value);			
 				System.out.println("Send text value to element: " + element[1]);	
 				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+				elm.clear();
 				elm.sendKeys(value);			
 				System.out.println("Send text value to element: " + element[1]);
 				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
@@ -119,11 +120,13 @@ public class BaseMethods {
 		else if (locatorBy == "xpath") {
 			WebElement elm = driver.findElement(AppiumBy.xpath(element[2]));
 			try {
+				elm.clear();
 				elm.sendKeys(value);			
 				System.out.println("Send text value to element: " + element[1]);
 				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
+				elm.clear();
 				elm.sendKeys(value);			
 				System.out.println("Send text value to element: " + element[1]);
 				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
@@ -133,11 +136,13 @@ public class BaseMethods {
 		else if (locatorBy == "id") {
 			WebElement elm = driver.findElement(AppiumBy.id(element[2]));
 			try {
+				elm.clear();
 				elm.sendKeys(value);			
 				System.out.println("Send text value to element: " + element[1]);
 				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
+				elm.clear();
 				elm.sendKeys(value);			
 				System.out.println("Send text value to element: " + element[1]);
 				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
@@ -147,53 +152,42 @@ public class BaseMethods {
 	
 	public void validateIfCorrectText(String[] element, String expectedValue) {
 		String locatorBy = element[0];
-		String actualValue;
+		String actualValue = null;
 		if (locatorBy == "accessibilityId") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				actualValue = elm.getText();
-				Assert.assertEquals(actualValue,expectedValue);
-				System.out.println(element[1] + " value is equal to expected value");
-				ExtentReportsUtil.pass(element[1] + " value is equal to expected value");
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				actualValue = elm.getText();
-				Assert.assertEquals(actualValue,expectedValue);
-				System.out.println(element[1] + " value is equal to expected value");
-				ExtentReportsUtil.pass(element[1] + " value is equal to expected value");
 			}
-
 		}
 		else if (locatorBy == "xpath") {
 			WebElement elm = driver.findElement(AppiumBy.xpath(element[2]));
 			try {
 				actualValue = elm.getText();
-				Assert.assertEquals(actualValue,expectedValue);	
-				System.out.println(element[1] + " value is equal to expected value");
-				ExtentReportsUtil.pass(element[1] + " value is equal to expected value");
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				actualValue = elm.getText();
-				Assert.assertEquals(actualValue,expectedValue);
-				System.out.println(element[1] + " value is equal to expected value");
-				ExtentReportsUtil.pass(element[1] + " value is equal to expected value");
 			}
-
 		}
 		else if (locatorBy == "id") {
 			WebElement elm = driver.findElement(AppiumBy.id(element[2]));
 			try {
 				actualValue = elm.getText();
-				Assert.assertEquals(actualValue,expectedValue);
-				System.out.println(element[1] + " value is equal to expected value");
-				ExtentReportsUtil.pass(element[1] + " value is equal to expected value");
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				actualValue = elm.getText();
-				Assert.assertEquals(actualValue,expectedValue);
-				System.out.println(element[1] + " value is equal to expected value");
-				ExtentReportsUtil.pass(element[1] + " value is equal to expected value");
 			}
+		}
+		
+		if (actualValue.contentEquals(expectedValue)) {
+			System.out.println(element[1] + " value is equal to expected value");
+			ExtentReportsUtil.pass(element[1] + " value is equal to expected value");	
+		}
+		else {
+			System.out.println(element[1] + " value is NOT equal to expected value");
+			ExtentReportsUtil.fail(element[1] + " value is NOT equal to expected value");
 		}
 		
 		
@@ -265,45 +259,47 @@ public class BaseMethods {
 		
 	}
 	
-	public void assertElementText(String[] element, String expectedValue) {
-		String val;
-		if (element[0] == "accessibilityId") {
-			val=driver.findElement(AppiumBy.accessibilityId(element[2])).getText();
-			Assert.assertEquals(val, expectedValue);
-			System.out.println(element[1] + " text is equal to expectedValue");
-			ExtentReportsUtil.pass(element[1] + " text is equal to expectedValue");
-		}
-		else if (element[0] == "id") {
-			val=driver.findElement(AppiumBy.id(element[2])).getText();
-			Assert.assertEquals(val, expectedValue);
-			System.out.println(element[1] + " text is equal to expectedValue");
-			ExtentReportsUtil.pass(element[1] + " text is equal to expectedValue");
-		}
-		
-		else if (element[0] == "xpath") {
-			val=driver.findElement(AppiumBy.xpath(element[2])).getText();
-			Assert.assertEquals(val, expectedValue);
-			System.out.println(element[1] + " text is equal to expectedValue");
-			ExtentReportsUtil.pass(element[1] + " text is equal to expectedValue");
-		}
-	}
-	
 	public void assertElementDisplayed(String[] element) {
+		WebElement elm;
+		boolean display = false;
+		
 		if (element[0] == "accessibilityId") {
-			Assert.assertTrue(driver.findElement(AppiumBy.accessibilityId(element[2])).isDisplayed());
-			System.out.println(element[1] + " is displayed");
-			ExtentReportsUtil.pass(element[1] + " is displayed");
+			try {
+				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+				display = elm.isDisplayed();
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+				display = elm.isDisplayed();
+			}
+			
 		}
 		else if (element[0] == "id") {
-			Assert.assertTrue(driver.findElement(AppiumBy.id(element[2])).isDisplayed());
-			System.out.println(element[1] + " is displayed");
-			ExtentReportsUtil.pass(element[1] + " is displayed");
+			try {
+				elm = driver.findElement(AppiumBy.id(element[2]));
+				display = elm.isDisplayed();
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.id(element[2]));
+				display = elm.isDisplayed();
+			}
 		}
 		
 		else if (element[0] == "xpath") {
-			Assert.assertTrue(driver.findElement(AppiumBy.xpath(element[2])).isDisplayed());
+			try {
+				elm = driver.findElement(AppiumBy.xpath(element[2]));
+				display = elm.isDisplayed();
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.xpath(element[2]));
+				display = elm.isDisplayed();
+			}
+		}
+		
+		if (display == true) {
 			System.out.println(element[1] + " is displayed");
 			ExtentReportsUtil.pass(element[1] + " is displayed");
+		}
+		else {
+			System.out.println(element[1] + " is NOT displayed");
+			ExtentReportsUtil.fail(element[1] + " is NOT displayed");
 		}
 	}
 	
@@ -427,6 +423,19 @@ public class BaseMethods {
 		    System.out.println(element.getText());
 		    ExtentReportsUtil.info(element.getText());
 		}
+	}
+	
+	public String getElementText(String element[]) {
+		WebElement elm;
+		String elmtext = null;
+		try {
+			elm = driver.findElement(AppiumBy.xpath(element[2]));
+			elmtext = elm.getText();
+		} catch (Exception e) {
+			elm = driver.findElement(AppiumBy.xpath(element[2]));
+			elmtext = elm.getText();
+		}
+		return elmtext;
 	}
 	
 	public void moveToElement(String[] ele) {

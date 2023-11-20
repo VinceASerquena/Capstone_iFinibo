@@ -5,7 +5,8 @@
         <classes>
 			<class name="scripts.TC01_ValidateLoanAndEMI">
 				<methods>
-					<include name="validateHome"/>
+					<include name="Fin_01"/>
+					<include name="Fin_02"/>
 				</methods>
 			</class>
         </classes>

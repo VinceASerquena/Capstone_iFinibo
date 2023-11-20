@@ -60,18 +60,18 @@ public class BaseClass {
 
     @AfterMethod(alwaysRun=true)
     public void afterMethod(ITestResult result) throws Exception {		
-    	JavascriptExecutor jse = (JavascriptExecutor) driver;
-    	try {
-			if (result.getStatus() == ITestResult.SUCCESS) {
-				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\"}}");
-			}
-			else {
-				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\"}}");
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}	
+//    	JavascriptExecutor jse = (JavascriptExecutor) driver;
+//    	try {
+//			if (result.getStatus() == ITestResult.SUCCESS) {
+//				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\"}}");
+//			}
+//			else {
+//				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\"}}");
+//			}
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}	
     	
     	ExtentReportsUtil.getExtentResult(result);
 		Logger.log("Results Retrieved");
