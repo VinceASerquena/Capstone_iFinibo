@@ -30,6 +30,12 @@ public class BaseClass {
 	
 	public static int failTC = 0;
 	
+	String userName = System.getenv("BROWSERSTACK_USERNAME");
+	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+	String app = System.getenv("BROWSERSTACK_APP_ID");
+	String URL2 = "http://" +  userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
+	
     @BeforeSuite
 	public void setupReport() {
 		ExtentReportsUtil.startExtentReport("\\Reports\\Test.html");
@@ -45,19 +51,16 @@ public class BaseClass {
         capabilities.setCapability("deviceName", "Samsung Galaxy S21");
         capabilities.setCapability("os_Version", "12.0");
         capabilities.setCapability("Project", "Vince's BS iFinibo Automation");
-        capabilities.setCapability("build", "Vince's BSBuild iFinibo");
-        capabilities.setCapability("app", "bs://f80d14888f1cf7e503a7de6366ec985e13631d03");
+//        capabilities.setCapability("build", "Vince's BSBuild iFinibo");
+//        capabilities.setCapability("app", "bs://f80d14888f1cf7e503a7de6366ec985e13631d03");
+        capabilities.setCapability("build", buildName);
+        capabilities.setCapability("name", buildName + " - JAVA");
+        capabilities.setCapability("app", app);
         System.out.println(URL);
-		driver = new AndroidDriver(new URL(URL),capabilities);
+		driver = new AndroidDriver(new URL(URL2),capabilities);
+		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"iFinibo Automation\"}}");
-        //Test Local Machine Android Studio
-//        UiAutomator2Options options=new UiAutomator2Options();
-//        options.setDeviceName("Vince Pixel 4");		
-//		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\appUsed\\iFinibo.apk");
-//		options.setCapability("appium:autoGrantPermissions", true);
-//		driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
-//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         
     }
 
