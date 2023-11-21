@@ -28,6 +28,8 @@ public class BaseClass {
 	public static final String URL = 
 			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	
+	public static int failTC = 0;
+	
     @BeforeSuite
 	public void setupReport() {
 		ExtentReportsUtil.startExtentReport("\\Reports\\Test.html");
@@ -63,10 +65,15 @@ public class BaseClass {
     public void afterMethod(ITestResult result) throws Exception {		    	
     	ExtentReportsUtil.getExtentResult(result);
 		Logger.log("Results Retrieved");
-		
+    }
+    
+    @AfterTest
+    public void tearDown() {  
+    	System.out.println(failTC);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
     	try {
-			if (result.getStatus() == ITestResult.SUCCESS) {
+//			if (result.getStatus() == ITestResult.SUCCESS) {
+			if (failTC == 0) {
 				System.out.println("Setting session status to Passed");
 				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\"}}");
 			}
@@ -79,10 +86,6 @@ public class BaseClass {
 			e.printStackTrace();
 		}
     	
-    }
-    
-    @AfterTest
-    public void tearDown() {    	
     	driver.quit();
     	Logger.log("End Test");
     }

@@ -8,8 +8,6 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import common.BaseClass;
-
 public class ExtentReportsUtil {
 	public static ExtentReports extent;
 	public static ExtentTest logger;
