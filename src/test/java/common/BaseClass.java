@@ -1,7 +1,7 @@
 package common;
 
+import java.lang.reflect.Method;
 import java.net.URL;
-import java.time.Duration;
 import java.util.HashMap;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +10,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
@@ -28,7 +29,10 @@ public class BaseClass {
 	public static final String URL = 
 			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	
-	public static int failTC = 0;
+	public static int failTC;
+	MutableCapabilities capabilities = new UiAutomator2Options();
+    HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+    
 	
 	String userName = System.getenv("BROWSERSTACK_USERNAME");
 	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
@@ -43,10 +47,9 @@ public class BaseClass {
     
     @BeforeTest(alwaysRun=true)
     public void setUpRunEnv() throws Exception {
+    	failTC = 0;
     	//Browserstack Capabilities
-    	MutableCapabilities capabilities = new UiAutomator2Options();
-        HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-        browserstackOptions.put("appiumVersion", "2.0.1"); //2.0.1
+    	browserstackOptions.put("appiumVersion", "2.0.1"); //2.0.1
         capabilities.setCapability("bstack:options", browserstackOptions);
         capabilities.setCapability("deviceName", "Samsung Galaxy S21");
         capabilities.setCapability("os_Version", "12.0");
@@ -54,13 +57,17 @@ public class BaseClass {
 //        capabilities.setCapability("build", "Vince's BSBuild iFinibo");
 //        capabilities.setCapability("app", "bs://f80d14888f1cf7e503a7de6366ec985e13631d03");
         capabilities.setCapability("build", buildName);
-        capabilities.setCapability("name", buildName + " - JAVA");
+//        capabilities.setCapability("name", buildName + " - JAVA");
         capabilities.setCapability("app", app);
-        System.out.println(URL);
+        System.out.println(URL);        
+    }
+    
+    @BeforeMethod
+    public void beforeMethod(Method m) throws Exception{
+    	String testname = m.getName();
+		System.out.println(testname);
+		capabilities.setCapability("name", testname);
 		driver = new AndroidDriver(new URL(URL2),capabilities);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("browserstack_executor: {'action': 'setSessionName', 'arguments': {'name': 'iFinibo Automation'}}");
-        
     }
 
     @AfterMethod(alwaysRun=true)

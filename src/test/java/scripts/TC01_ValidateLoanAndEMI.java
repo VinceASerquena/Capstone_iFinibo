@@ -23,11 +23,10 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 	
 	@Test
 	public void Fin_01() {
+		
 		ExtentReportsUtil.logstep("Fin_01 - Validate Home Page");
 		HomeMethods hpm = new HomeMethods(driver);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;	
-		jse.executeScript("browserstack_executor: {'action': 'setSessionName', 'arguments': {'name': 'iFinibo Automation - Fin_01'}}");
-		
+			
 		//validate elements
 		ExtentReportsUtil.info("Validate Elements are Present");
 		hpm.validateHomeLoanEMI();
@@ -48,8 +47,6 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 	public void Fin_02() throws Exception {
 		ExtentReportsUtil.logstep("Fin_02 - Validate Loan Basic Page");
 		HomeMethods hpm = new HomeMethods(driver);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;	
-		jse.executeScript("browserstack_executor: {'action': 'setSessionName', 'arguments': {'name': 'iFinibo Automation - Fin_02'}}");
 		
 		data1.getCounter();
 		ExtentReportsUtil.info("Navigate to Loan Basic Page");
@@ -102,12 +99,11 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 	
 	@Test
 	public void Fin_03() throws Exception {
+		
 		ExtentReportsUtil.logstep("Fin_03 - Validate Vehicle Loan Page");
 		data2.getCounter();
 		
 		HomeMethods hpm = new HomeMethods(driver);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;	
-		jse.executeScript("browserstack_executor: {'action': 'setSessionName', 'arguments': {'name': 'iFinibo Automation - Fin_03'}}");
 		
 		ExtentReportsUtil.info("Navigate to Loan Basic Page");
 		hpm.assertElementDisplayed(HomePage.LAE_LoanBasic_Text);

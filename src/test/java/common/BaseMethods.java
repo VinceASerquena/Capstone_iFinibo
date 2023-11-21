@@ -1,5 +1,6 @@
 package common;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +9,9 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -189,6 +192,8 @@ public class BaseMethods {
 			System.out.println(element[1] + " value is NOT equal to expected value");
 			ExtentReportsUtil.fail(element[1] + " value is NOT equal to expected value");
 			BaseClass.failTC++;
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		}
 		
 		
@@ -302,6 +307,8 @@ public class BaseMethods {
 			System.out.println(element[1] + " is NOT displayed");
 			ExtentReportsUtil.fail(element[1] + " is NOT displayed");
 			BaseClass.failTC++;
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		}
 	}
 	

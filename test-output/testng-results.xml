@@ -1,74 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="6" total="9" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-21T15:26:06 PST" name="iFinibo Automate" finished-at="2023-11-21T15:28:28 PST" duration-ms="142399">
+  <suite started-at="2023-11-21T16:32:34 PST" name="iFinibo Automate" finished-at="2023-11-21T16:35:41 PST" duration-ms="187633">
     <groups>
     </groups>
-    <test started-at="2023-11-21T15:26:06 PST" name="Test Case - Validate Loan and EMI" finished-at="2023-11-21T15:28:28 PST" duration-ms="142399">
+    <test started-at="2023-11-21T16:32:34 PST" name="Test Case - Validate Loan and EMI" finished-at="2023-11-21T16:33:11 PST" duration-ms="37373">
       <class name="scripts.TC01_ValidateLoanAndEMI">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:26:05 PST" name="setupReport" finished-at="2023-11-21T15:26:06 PST" duration-ms="314" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setUpRunEnv()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:26:06 PST" name="setUpRunEnv" finished-at="2023-11-21T15:26:31 PST" duration-ms="25091" status="PASS">
+        <test-method is-config="true" signature="setUpRunEnv()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1a45193b]" started-at="2023-11-21T16:32:34 PST" name="setUpRunEnv" finished-at="2023-11-21T16:32:34 PST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpRunEnv -->
-        <test-method signature="Fin_01()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:26:31 PST" name="Fin_01" finished-at="2023-11-21T15:26:43 PST" duration-ms="12175" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1a45193b]" started-at="2023-11-21T16:32:34 PST" name="beforeMethod" finished-at="2023-11-21T16:32:58 PST" duration-ms="23810" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void scripts.TC01_ValidateLoanAndEMI.Fin_01()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Fin_01()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1a45193b]" started-at="2023-11-21T16:32:58 PST" name="Fin_01" finished-at="2023-11-21T16:33:09 PST" duration-ms="11167" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Fin_01 -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:26:43 PST" name="afterMethod" finished-at="2023-11-21T15:26:43 PST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1a45193b]" started-at="2023-11-21T16:33:09 PST" name="afterMethod" finished-at="2023-11-21T16:33:09 PST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Fin_01 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_01()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b] output={null}]]]>
+                <![CDATA[[TestResult name=Fin_01 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_01()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1a45193b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="Fin_02()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:26:43 PST" name="Fin_02" finished-at="2023-11-21T15:27:34 PST" duration-ms="51021" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Fin_02 -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:27:34 PST" name="afterMethod" finished-at="2023-11-21T15:27:34 PST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Fin_02 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_02()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="Fin_03()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:27:34 PST" name="Fin_03" finished-at="2023-11-21T15:28:25 PST" duration-ms="51401" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Fin_03 -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:28:25 PST" name="afterMethod" finished-at="2023-11-21T15:28:25 PST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Fin_03 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_03()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:28:25 PST" name="tearDown" finished-at="2023-11-21T15:28:28 PST" duration-ms="2660" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1a45193b]" started-at="2023-11-21T16:33:09 PST" name="tearDown" finished-at="2023-11-21T16:33:11 PST" duration-ms="2361" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1d131e1b]" started-at="2023-11-21T15:28:28 PST" name="endTest" finished-at="2023-11-21T15:28:29 PST" duration-ms="433" status="PASS">
+      </class> <!-- scripts.TC01_ValidateLoanAndEMI -->
+    </test> <!-- Test Case - Validate Loan and EMI -->
+    <test started-at="2023-11-21T16:33:11 PST" name="Test Case - Validate Loan Basic" finished-at="2023-11-21T16:34:24 PST" duration-ms="72686">
+      <class name="scripts.TC01_ValidateLoanAndEMI">
+        <test-method is-config="true" signature="setUpRunEnv()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@5c153b9e]" started-at="2023-11-21T16:33:11 PST" name="setUpRunEnv" finished-at="2023-11-21T16:33:11 PST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpRunEnv -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@5c153b9e]" started-at="2023-11-21T16:33:11 PST" name="beforeMethod" finished-at="2023-11-21T16:33:36 PST" duration-ms="24666" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void scripts.TC01_ValidateLoanAndEMI.Fin_02() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Fin_02()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@5c153b9e]" started-at="2023-11-21T16:33:36 PST" name="Fin_02" finished-at="2023-11-21T16:34:21 PST" duration-ms="45689" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Fin_02 -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@5c153b9e]" started-at="2023-11-21T16:34:21 PST" name="afterMethod" finished-at="2023-11-21T16:34:21 PST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Fin_02 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_02()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@5c153b9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@5c153b9e]" started-at="2023-11-21T16:34:21 PST" name="tearDown" finished-at="2023-11-21T16:34:24 PST" duration-ms="2328" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- scripts.TC01_ValidateLoanAndEMI -->
+    </test> <!-- Test Case - Validate Loan Basic -->
+    <test started-at="2023-11-21T16:34:24 PST" name="Test Case - Validate Vehicle Loan" finished-at="2023-11-21T16:35:41 PST" duration-ms="77532">
+      <class name="scripts.TC01_ValidateLoanAndEMI">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:32:34 PST" name="setupReport" finished-at="2023-11-21T16:32:34 PST" duration-ms="198" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReport -->
+        <test-method is-config="true" signature="setUpRunEnv()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:34:24 PST" name="setUpRunEnv" finished-at="2023-11-21T16:34:24 PST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpRunEnv -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:34:24 PST" name="beforeMethod" finished-at="2023-11-21T16:34:48 PST" duration-ms="23810" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void scripts.TC01_ValidateLoanAndEMI.Fin_03() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Fin_03()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:34:48 PST" name="Fin_03" finished-at="2023-11-21T16:35:39 PST" duration-ms="51156" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Fin_03 -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:35:39 PST" name="afterMethod" finished-at="2023-11-21T16:35:39 PST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Fin_03 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_03()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:35:39 PST" name="tearDown" finished-at="2023-11-21T16:35:41 PST" duration-ms="2563" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="endTest()[pri:0, instance:scripts.TC01_ValidateLoanAndEMI@1522d8a0]" started-at="2023-11-21T16:35:41 PST" name="endTest" finished-at="2023-11-21T16:35:42 PST" duration-ms="236" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->
       </class> <!-- scripts.TC01_ValidateLoanAndEMI -->
-    </test> <!-- Test Case - Validate Loan and EMI -->
+    </test> <!-- Test Case - Validate Vehicle Loan -->
   </suite> <!-- iFinibo Automate -->
 </testng-results>

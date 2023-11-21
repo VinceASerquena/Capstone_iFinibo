@@ -56,7 +56,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="testlist-iFinibo_Automate" class="navigator-link ">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">3 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -173,12 +173,28 @@
       &lt;class name=&quot;scripts.TC01_ValidateLoanAndEMI&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;Fin_01&quot;/&gt;
-          &lt;include name=&quot;Fin_02&quot;/&gt;
-          &lt;include name=&quot;Fin_03&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- scripts.TC01_ValidateLoanAndEMI --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test Case - Validate Loan and EMI --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test Case - Validate Loan Basic&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;scripts.TC01_ValidateLoanAndEMI&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;Fin_02&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- scripts.TC01_ValidateLoanAndEMI --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test Case - Validate Loan Basic --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test Case - Validate Vehicle Loan&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;scripts.TC01_ValidateLoanAndEMI&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;Fin_03&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- scripts.TC01_ValidateLoanAndEMI --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test Case - Validate Vehicle Loan --&gt;
 &lt;/suite&gt; &lt;!-- iFinibo Automate --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -191,6 +207,12 @@
             <ul>
               <li>
                 <span class="test-name">Test Case - Validate Loan and EMI (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test Case - Validate Loan Basic (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test Case - Validate Vehicle Loan (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -220,15 +242,15 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Fin_03')
 data.setCell(0, 2, 'scripts.TC01_ValidateLoanAndEMI')
-data.setCell(0, 3, 51401);
+data.setCell(0, 3, 51156);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Fin_02')
 data.setCell(1, 2, 'scripts.TC01_ValidateLoanAndEMI')
-data.setCell(1, 3, 51021);
+data.setCell(1, 3, 45689);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'Fin_01')
 data.setCell(2, 2, 'scripts.TC01_ValidateLoanAndEMI')
-data.setCell(2, 3, 12175);
+data.setCell(2, 3, 11167);
 window.suiteTableData['iFinibo_Automate']= { tableData: data, tableDiv: 'times-div-iFinibo_Automate'}
 return data;
 }
@@ -248,9 +270,26 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-iFinibo_Automate" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">scripts.TC01_ValidateLoanAndEMI</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">Fin_01</span>
+                <br/>
+                <span class="ignored-method-name">Fin_03</span>
+                <br/>
+                <span class="ignored-method-name">Fin_01</span>
+                <br/>
+                <span class="ignored-method-name">Fin_03</span>
+                <br/>
+                <span class="ignored-method-name">Fin_02</span>
+                <br/>
+                <span class="ignored-method-name">Fin_02</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-iFinibo_Automate" class="panel">
@@ -266,39 +305,67 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">setUpRunEnv</span>
-                <span class="method-start">320 ms</span>
+                <span class="method-start">201 ms</span>
               </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void scripts.TC01_ValidateLoanAndEMI.Fin_01())</span>
+                <span class="method-start">229 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Fin_01</span>
-                <span class="method-start">25441 ms</span>
+                <span class="method-start">24040 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod([TestResult name=Fin_01 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_01()[pri:0, instance:scrip...)</span>
-                <span class="method-start">37620 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">Fin_02</span>
-                <span class="method-start">37626 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=Fin_02 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_02()[pri:0, instance:scrip...)</span>
-                <span class="method-start">88649 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">Fin_03</span>
-                <span class="method-start">88650 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=Fin_03 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_03()[pri:0, instance:scrip...)</span>
-                <span class="method-start">140053 ms</span>
+                <span class="method-start">35209 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">140056 ms</span>
+                <span class="method-start">35211 ms</span>
+              </div> <!-- configuration-test after -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpRunEnv</span>
+                <span class="method-start">37602 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void scripts.TC01_ValidateLoanAndEMI.Fin_02() throws java.lang.Exception)</span>
+                <span class="method-start">37603 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Fin_02</span>
+                <span class="method-start">62269 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=Fin_02 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_02()[pri:0, instance:scrip...)</span>
+                <span class="method-start">107959 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">107959 ms</span>
+              </div> <!-- configuration-test after -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpRunEnv</span>
+                <span class="method-start">110301 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void scripts.TC01_ValidateLoanAndEMI.Fin_03() throws java.lang.Exception)</span>
+                <span class="method-start">110301 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Fin_03</span>
+                <span class="method-start">134111 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=Fin_03 status=SUCCESS method=TC01_ValidateLoanAndEMI.Fin_03()[pri:0, instance:scrip...)</span>
+                <span class="method-start">185268 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">185269 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">endTest</span>
-                <span class="method-start">142756 ms</span>
+                <span class="method-start">187845 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
