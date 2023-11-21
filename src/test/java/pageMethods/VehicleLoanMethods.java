@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 import common.BaseMethods;
 import data.TC01_ValidateVehicleLoanData;
 import io.appium.java_client.android.AndroidDriver;
-import pageLocators.LoanAmountPage;
 import pageLocators.VehicleLoanPage;
 
 public class VehicleLoanMethods extends BaseMethods{

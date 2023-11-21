@@ -58,9 +58,8 @@ public class BaseClass {
         capabilities.setCapability("app", app);
         System.out.println(URL);
 		driver = new AndroidDriver(new URL(URL2),capabilities);
-		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"iFinibo Automation\"}}");
+		jse.executeScript("browserstack_executor: {'action': 'setSessionName', 'arguments': {'name': 'iFinibo Automation'}}");
         
     }
 
