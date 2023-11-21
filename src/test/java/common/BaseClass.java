@@ -26,7 +26,7 @@ public class BaseClass {
 	public static final String AUTOMATE_ACCESS_KEY = "6Nakjv6gG8CQfeyCxTHW";
 	
 	public static final String URL = 
-			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";	
+			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	
     @BeforeSuite
 	public void setupReport() {
@@ -63,12 +63,16 @@ public class BaseClass {
     public void afterMethod(ITestResult result) throws Exception {		    	
     	ExtentReportsUtil.getExtentResult(result);
 		Logger.log("Results Retrieved");
+		
+		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
     	try {
 			if (result.getStatus() == ITestResult.SUCCESS) {
+				System.out.println("Setting session status to Passed");
 				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\"}}");
 			}
 			else {
+				System.out.println("Setting session status to Failed");
 				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\"}}");
 			}
 			

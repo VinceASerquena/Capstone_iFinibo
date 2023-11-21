@@ -4,7 +4,7 @@ public class VehicleLoanPage {
 	
 	public static final String[] VehicleLoan_Title = {"id", "Vehicle Loan Title", "com.ajra.emicalculator:id/text_title"};
 	
-	public static final String[] VehiclePrice_Textbox = {"id", "Vehicel Price Textbox", "com.ajra.emicalculator:id/control_car_price"};
+	public static final String[] VehiclePrice_Textbox = {"id", "Vehicle Price Textbox", "com.ajra.emicalculator:id/control_car_price"};
 	public static final String[] DownPaymentRequirement_Textbox = {"id", "Down Payment Requirement Textbox", "com.ajra.emicalculator:id/control_down_required"};
 	public static final String[] DownPaymentAmount_Textbox = {"id", "Down Payment Amount Textbox", "com.ajra.emicalculator:id/control_down_payment"};
 	public static final String[] AnnualInterestRate_Textbox = {"id", "Annual Interest Rate Textbox", "com.ajra.emicalculator:id/control_rate_of_interest"};
