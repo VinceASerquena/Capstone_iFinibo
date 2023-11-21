@@ -26,8 +26,8 @@ public class BaseClass {
 	public static final String AUTOMATE_ACCESS_KEY = "6Nakjv6gG8CQfeyCxTHW";
 	
 	public static final String URL = 
-			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    
+			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";	
+	
     @BeforeSuite
 	public void setupReport() {
 		ExtentReportsUtil.startExtentReport("\\Reports\\Test.html");
@@ -36,49 +36,50 @@ public class BaseClass {
     @BeforeTest(alwaysRun=true)
     public void setUpRunEnv() throws Exception {
     	//Browserstack Capabilities
-//    	MutableCapabilities capabilities = new UiAutomator2Options();
-//        HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-//        browserstackOptions.put("appiumVersion", "2.0.1"); //2.0.1
-//        capabilities.setCapability("bstack:options", browserstackOptions);
-//        capabilities.setCapability("deviceName", "Samsung Galaxy S21");
-//        capabilities.setCapability("os_Version", "12.0");
-//        capabilities.setCapability("Project", "Vince's BrowserStack Android Sample");
-//        capabilities.setCapability("build", "Vince's Android BSBuild");
-//        capabilities.setCapability("app", "bs://8d424e0dc3cb17e79d923abf7ef8494caa5b01a2");
-//        System.out.println(URL);
-//		driver = new AndroidDriver(new URL(URL),capabilities);
-		
+    	MutableCapabilities capabilities = new UiAutomator2Options();
+        HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+        browserstackOptions.put("appiumVersion", "2.0.1"); //2.0.1
+        capabilities.setCapability("bstack:options", browserstackOptions);
+        capabilities.setCapability("deviceName", "Samsung Galaxy S21");
+        capabilities.setCapability("os_Version", "12.0");
+        capabilities.setCapability("Project", "Vince's BS iFinibo Automation");
+        capabilities.setCapability("build", "Vince's BSBuild iFinibo");
+        capabilities.setCapability("app", "bs://f80d14888f1cf7e503a7de6366ec985e13631d03");
+        System.out.println(URL);
+		driver = new AndroidDriver(new URL(URL),capabilities);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"iFinibo Automation\"}}");
         //Test Local Machine Android Studio
-        UiAutomator2Options options=new UiAutomator2Options();
-        options.setDeviceName("Vince Pixel 4");		
-		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\appUsed\\iFinibo.apk");
-		options.setCapability("appium:autoGrantPermissions", true);
-		driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//        UiAutomator2Options options=new UiAutomator2Options();
+//        options.setDeviceName("Vince Pixel 4");		
+//		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\appUsed\\iFinibo.apk");
+//		options.setCapability("appium:autoGrantPermissions", true);
+//		driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         
     }
 
     @AfterMethod(alwaysRun=true)
-    public void afterMethod(ITestResult result) throws Exception {		
-//    	JavascriptExecutor jse = (JavascriptExecutor) driver;
-//    	try {
-//			if (result.getStatus() == ITestResult.SUCCESS) {
-//				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\"}}");
-//			}
-//			else {
-//				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\"}}");
-//			}
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}	
-    	
+    public void afterMethod(ITestResult result) throws Exception {		    	
     	ExtentReportsUtil.getExtentResult(result);
 		Logger.log("Results Retrieved");
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+    	try {
+			if (result.getStatus() == ITestResult.SUCCESS) {
+				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\"}}");
+			}
+			else {
+				jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\"}}");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
     }
     
     @AfterTest
-    public void tearDown() {
+    public void tearDown() {    	
     	driver.quit();
     	Logger.log("End Test");
     }

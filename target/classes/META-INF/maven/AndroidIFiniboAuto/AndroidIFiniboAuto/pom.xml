@@ -101,7 +101,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/com/browserstack/apidemos-testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suite/iFinibo-testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>
                 </configuration>

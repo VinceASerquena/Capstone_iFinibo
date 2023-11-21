@@ -1,22 +1,24 @@
 package scripts;
 
-import java.text.DecimalFormat;
-
 import org.testng.annotations.Test;
 
 import common.BaseClass;
-import data.TC01_ValidateLoanAndEMIData;
+import data.TC01_ValidateLoanAmountData;
+import data.TC01_ValidateVehicleLoanData;
 import pageLocators.HomePage;
 import pageLocators.LoanAmountPage;
 import pageLocators.LoanEMIPage;
+import pageLocators.VehicleLoanPage;
 import pageMethods.HomeMethods;
 import pageMethods.LoanAmountMethods;
 import pageMethods.LoanBasicMethods;
+import pageMethods.VehicleLoanMethods;
 import utils.ExtentReportsUtil;
 
 public class TC01_ValidateLoanAndEMI extends BaseClass {
 	
-	TC01_ValidateLoanAndEMIData data = new TC01_ValidateLoanAndEMIData();
+	TC01_ValidateLoanAmountData data1 = new TC01_ValidateLoanAmountData();
+	TC01_ValidateVehicleLoanData data2 = new TC01_ValidateVehicleLoanData();
 	
 	@Test
 	public void Fin_01() {
@@ -25,32 +27,15 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 		
 		//validate elements
 		ExtentReportsUtil.info("Validate Elements are Present");
-		hpm.assertElementDisplayed(HomePage.Title);
-		hpm.assertElementDisplayed(HomePage.LoanAndEmi_Header);
-		hpm.assertElementDisplayed(HomePage.LoanAndEmi_Collapse);
-		hpm.assertElementDisplayed(HomePage.LAE_LoanBasic_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_LoanAdvance_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_CompareLoan_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_LoanAmountEligibility_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_HomeLoanDocuments_Text);
+		hpm.validateHomeLoanEMI();
 		
 		//Validate Collapse
 		ExtentReportsUtil.info("Validate Loan And EMI Collapse");
-		hpm.clickElement(HomePage.LoanAndEmi_Collapse);
-		hpm.assertElementNotDisplayed(HomePage.LAE_LoanBasic_Text);
-		hpm.assertElementNotDisplayed(HomePage.LAE_LoanAdvance_Text);
-		hpm.assertElementNotDisplayed(HomePage.LAE_CompareLoan_Text);
-		hpm.assertElementNotDisplayed(HomePage.LAE_LoanAmountEligibility_Text);
-		hpm.assertElementNotDisplayed(HomePage.LAE_HomeLoanDocuments_Text);
+		hpm.validateLoanEMICollapse();
 		
 		//Validate Options for Loan And EMI
 		ExtentReportsUtil.info("Validate Loan And EMI Expand");
-		hpm.clickElement(HomePage.LoanAndEmi_Collapse);
-		hpm.assertElementDisplayed(HomePage.LAE_LoanBasic_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_LoanAdvance_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_CompareLoan_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_LoanAmountEligibility_Text);
-		hpm.assertElementDisplayed(HomePage.LAE_HomeLoanDocuments_Text);
+		hpm.validateLoanEMIExpand();
 		
 		//Print Options for Loan And EMI
 		hpm.getElementsTextByXpath(HomePage.LoanAndEmi_ChildElements[2]);
@@ -60,40 +45,25 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 	public void Fin_02() throws Exception {
 		ExtentReportsUtil.logstep("Fin_02 - Validate Loan Basic Page");
 		HomeMethods hpm = new HomeMethods(driver);
-		data.getCounter();
-		//Navigate to Loan Basic Page
+		data1.getCounter();
+		ExtentReportsUtil.info("Navigate to Loan Basic Page");
 		hpm.assertElementDisplayed(HomePage.LAE_LoanBasic_Text);
 		hpm.clickElement(HomePage.LAE_LoanBasic_Text);
 		
-		//Assert Elements
 		ExtentReportsUtil.info("Validate Loan Basic Elements");
 		LoanBasicMethods lbm = new LoanBasicMethods(driver);
-		lbm.assertElementDisplayed(LoanEMIPage.LoanBasic_Title);
-		lbm.assertElementDisplayed(LoanEMIPage.Calculator_Header);
-		lbm.assertElementDisplayed(LoanEMIPage.MonthlyRepayment_Text);
-		lbm.assertElementDisplayed(LoanEMIPage.LoanAmount_Text);
-		lbm.assertElementDisplayed(LoanEMIPage.AnnualInterestRate_Text);
-		lbm.assertElementDisplayed(LoanEMIPage.LoanTerm_Text);
-		lbm.assertElementDisplayed(LoanEMIPage.Others_Header);
-		lbm.assertElementDisplayed(LoanEMIPage.SaveLoan_Text);
-		lbm.assertElementDisplayed(LoanEMIPage.VehicleLoan_Text);
+		lbm.validateLoanBasic();
+		
+		ExtentReportsUtil.info("Naviagate to Loan Amount Page");
 		lbm.clickElement(LoanEMIPage.LoanAmount_Text);
 		
-		ExtentReportsUtil.info("Validate Loan Amount Elements");
+		ExtentReportsUtil.info("Validate Loan Amount Eements");
 		LoanAmountMethods lam = new LoanAmountMethods(driver);
-		lam.assertElementDisplayed(LoanAmountPage.LoanAmount_Title);
-		lam.assertElementDisplayed(LoanAmountPage.MonthlyRepayment_Textbox);
-		lam.assertElementDisplayed(LoanAmountPage.AnnualInterestRate_Textbox);
-		lam.assertElementDisplayed(LoanAmountPage.LoanTerm_Textbox);
-		lam.assertElementDisplayed(LoanAmountPage.LoanTerm_Dropdown);
-		lam.assertElementDisplayed(LoanAmountPage.Clear_Button);
-		lam.assertElementDisplayed(LoanAmountPage.Calculate_Button);
+		lam.validateLoanAmount();
 		
 		//Enter Values
 		ExtentReportsUtil.info("Enter Loan Details");
-		lam.sendTextToElement(LoanAmountPage.MonthlyRepayment_Textbox, data.getMonthlyPayment());
-		lam.sendTextToElement(LoanAmountPage.AnnualInterestRate_Textbox, data.getAnnualInterestRate());
-		lam.sendTextToElement(LoanAmountPage.LoanTerm_Textbox, data.getLoanDuration());
+		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), data1.getAnnualInterestRate(), data1.getLoanDuration());
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Months);
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
@@ -108,52 +78,81 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 		
 		//Enter Values
 		ExtentReportsUtil.info("Enter Loan Details");
-		lam.sendTextToElement(LoanAmountPage.MonthlyRepayment_Textbox, data.getMonthlyPayment());
-		lam.sendTextToElement(LoanAmountPage.AnnualInterestRate_Textbox, data.getAnnualInterestRate());
-		lam.enterLoanTerms(data.getLoanTerm());
-		lam.sendTextToElement(LoanAmountPage.LoanTerm_Textbox, data.getLoanDuration());
+		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), data1.getAnnualInterestRate(), data1.getLoanDuration());
+		lam.enterLoanTerms(data1.getLoanTerm());
 		lam.clickElement(LoanAmountPage.Calculate_Button);
 		
 		//Calculate and Validate Results
 		ExtentReportsUtil.info("Validate Loan Calculate Results");
-		DecimalFormat df = new DecimalFormat("#,###,###.00");
-		lam.assertElementDisplayed(LoanAmountPage.LoanAmount_Text);
-		lam.validateIfCorrectText(LoanAmountPage.LoanAmount_Value, df.format(Double.parseDouble(data.getLoanAmount())));
-		lam.assertElementDisplayed(LoanAmountPage.NumOfPayments_Text);
-		lam.validateIfCorrectText(LoanAmountPage.NumOfPayments_Value, data.getNumberOfPayments());
-		lam.assertElementDisplayed(LoanAmountPage.TotalInterest_Text);
-		lam.validateIfCorrectText(LoanAmountPage.TotalInterest_Value, df.format(Double.parseDouble(data.getTotalInterest())));
-		lam.assertElementDisplayed(LoanAmountPage.TotalPayment_Text);
-		System.out.println(lam.getElementText(LoanAmountPage.TotalPayment_Value));
-		System.out.println(df.format(Double.parseDouble(data.getTotalPayment())));
-		lam.validateIfCorrectText(LoanAmountPage.TotalPayment_Value, df.format(Double.parseDouble(data.getTotalPayment())));
+		lam.validateLoanCalculateResult();
 		
 		//Click Details and Validate Graph
 		ExtentReportsUtil.info("Validate Loan Details");
 		lam.clickElement(LoanAmountPage.Details_Button);
+		lam.validateLoanDetailsYearlyTable();
+		lam.validateLoanDetailsMonthlyTable();
+		lam.validateLoanDetailsGraph();
 		
-		lam.assertElementDisplayed(LoanAmountPage.Table_Graph);
-		lam.assertElementDisplayed(LoanAmountPage.TY_YearNumber_Header);
-		lam.assertElementDisplayed(LoanAmountPage.TY_PrincipalPaid_Header);
-		lam.assertElementDisplayed(LoanAmountPage.TY_InterestPaid_Header);
-		lam.assertElementDisplayed(LoanAmountPage.TY_YearEndLoanBalance_Header);
-		
-		lam.assertElementDisplayed(LoanAmountPage.Table_Monthly);
-		lam.clickElement(LoanAmountPage.Table_Monthly);
-		lam.assertElementDisplayed(LoanAmountPage.TM_YearNumber_Header);
-		lam.assertElementDisplayed(LoanAmountPage.TM_PrincipalPaid_Header);
-		lam.assertElementDisplayed(LoanAmountPage.TM_InterestPaid_Header);
-		lam.assertElementDisplayed(LoanAmountPage.TM_MonthEndLoanBalance_Header);
-		
-		lam.assertElementDisplayed(LoanAmountPage.Table_Graph);
-		lam.clickElement(LoanAmountPage.Table_Graph);
-		lam.assertElementDisplayed(LoanAmountPage.Graph_PieChart);;
+		lam.navigateBack();
+		lam.navigateBack();;
 		
 	}
 	
 	@Test
-	public void Fin_03() {
-		ExtentReportsUtil.logstep("Validate Vehicle Loan Page");
+	public void Fin_03() throws Exception {
+		ExtentReportsUtil.logstep("Fin_03 - Validate Vehicle Loan Page");
+		data2.getCounter();
 		
+		ExtentReportsUtil.info("Navigate to Vehicle Loan Page");
+		LoanBasicMethods lbm = new LoanBasicMethods(driver);
+		lbm.assertElementDisplayed(LoanEMIPage.VehicleLoan_Text);
+		lbm.clickElement(LoanEMIPage.VehicleLoan_Text);
+		
+		ExtentReportsUtil.info("Validate Vehicle Loan Eements");
+		VehicleLoanMethods vlm = new VehicleLoanMethods(driver);
+		vlm.validateVehicleLoan();
+		
+		ExtentReportsUtil.info("Enter Vehicle Loan Details");
+		vlm.enterLoanDetailsTextbox(data2.getVehiclePrice(),
+				data2.getDownPaymentRequirement(), 
+				data2.getDownPaymentAmount(), 
+				data2.getAnnualInterstRate(),
+				data2.getLoanDuration());
+		
+		vlm.clickElement(VehicleLoanPage.LoanTerm_Dropdown);
+		vlm.clickElement(VehicleLoanPage.LoanTerm_Dropdown_Months);
+		vlm.clickElement(VehicleLoanPage.LoanTerm_Dropdown);
+		vlm.clickElement(VehicleLoanPage.LoanTerm_Dropdown_Years);
+		vlm.clickElement(VehicleLoanPage.Calculate_Button);
+		
+		ExtentReportsUtil.info("Clear Vehicle Loan Details");
+		vlm.assertElementDisplayed(LoanAmountPage.Result_Header);
+		vlm.clickElement(LoanAmountPage.Clear_Button);
+		vlm.assertElementNotDisplayed(LoanAmountPage.Result_Header);
+		
+		//Enter Values
+		ExtentReportsUtil.info("Enter Vehicle Loan Details");
+		vlm.enterLoanDetailsTextbox(data2.getVehiclePrice(),
+				data2.getDownPaymentRequirement(), 
+				data2.getDownPaymentAmount(), 
+				data2.getAnnualInterstRate(),
+				data2.getLoanDuration());
+		vlm.enterLoanTerms(data2.getLoanTerm());
+		vlm.clickElement(LoanAmountPage.Calculate_Button);
+		
+		//Calculate and Validate Results
+		ExtentReportsUtil.info("Validate Vehicle Loan Calculate Results");
+		vlm.validateLoanCalculateResult();
+		
+		//Click Details and Validate Graph
+		ExtentReportsUtil.info("Validate Vehicle Loan Details");
+		vlm.clickElement(LoanAmountPage.Details_Button);
+		vlm.validateLoanDetailsYearlyTable();
+		vlm.validateLoanDetailsMonthlyTable();
+		vlm.validateLoanDetailsGraph();
+		
+		vlm.navigateBack();
+		vlm.navigateBack();
+	
 	}
 }

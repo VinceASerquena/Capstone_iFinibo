@@ -2,7 +2,7 @@ package data;
 
 import common.Utils;
 
-public class TC01_ValidateLoanAndEMIData extends Utils {
+public class TC01_ValidateLoanAmountData extends Utils {
 	
 	static String excelFile = System.getProperty("user.dir").replace("\\", "/") + "/src/test/resources/Testdata/TestData.xlsx";
 	static String workSheet = "LoanAmount";

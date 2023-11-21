@@ -14,9 +14,6 @@ public class LoanAmountPage {
 	public static final String[] Clear_Button = {"id", "Clear Button", "com.ajra.emicalculator:id/button_reset"};
 	public static final String[] Calculate_Button = {"id", "Calculate Button", "com.ajra.emicalculator:id/button_calculate"};
 	
-
-	public static final String[] test = {"", "", ""};
-	
 	public static final String[] Result_Header = {"xpath", "Result Header", "//android.widget.TextView[@text = 'Result']"};
 	
 	public static final String[] LoanAmount_Text = {"xpath", "Loan Amount Text", "(//android.widget.TextView[@text = 'Loan Amount'])[2]"};
