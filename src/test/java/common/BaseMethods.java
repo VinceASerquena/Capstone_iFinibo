@@ -193,6 +193,7 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " value is NOT equal to expected value");
 			BaseClass.failTC++;
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		}
 		
 		
