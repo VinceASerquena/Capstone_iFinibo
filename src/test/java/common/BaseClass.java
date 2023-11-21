@@ -64,7 +64,6 @@ public class BaseClass {
     	ExtentReportsUtil.getExtentResult(result);
 		Logger.log("Results Retrieved");
 		
-		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
     	try {
 			if (result.getStatus() == ITestResult.SUCCESS) {
