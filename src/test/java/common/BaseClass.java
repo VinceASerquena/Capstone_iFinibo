@@ -22,13 +22,7 @@ import utils.Logger;
 public class BaseClass {
 	public AndroidDriver driver;
 	public static ITestResult result;
-    
-//	For Testing on Local Machine
-//    public static final String AUTOMATE_USERNAME = "vincealecserquen_PUL7Gx";
-//	public static final String AUTOMATE_ACCESS_KEY = "6Nakjv6gG8CQfeyCxTHW";
-//	public static final String URL = 
-//			"http://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-	
+    	
 	public static int failTC;
 	MutableCapabilities capabilities = new UiAutomator2Options();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
@@ -53,9 +47,6 @@ public class BaseClass {
         capabilities.setCapability("deviceName", "Samsung Galaxy S21");
         capabilities.setCapability("os_Version", "12.0");
         capabilities.setCapability("Project", "Vince's BS iFinibo Automation");
-//        For testing on local machine
-//        capabilities.setCapability("build", "Vince's BSBuild iFinibo");
-//        capabilities.setCapability("app", "bs://f80d14888f1cf7e503a7de6366ec985e13631d03");
         capabilities.setCapability("build", buildName);
         capabilities.setCapability("app", app);        
     }
