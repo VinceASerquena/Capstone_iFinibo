@@ -88,13 +88,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail("\"" +value + "\" text was NOT Clicked");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 	}
 	
@@ -145,7 +140,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 		
 	}
@@ -204,7 +199,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 	}
 	
@@ -249,7 +244,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 		
 		
@@ -322,7 +317,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 		
 	}
@@ -371,7 +366,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 	}
 	
@@ -388,7 +383,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 	}
 	public boolean isDisplayed(String[] element) {
@@ -580,7 +575,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
 		}
 				
 	}
