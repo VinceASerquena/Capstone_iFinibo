@@ -1,6 +1,7 @@
 package common;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -38,14 +39,19 @@ public class BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	}
 	
-	public String getScreenhot(String screenshotName) throws Exception {
+	public String getScreenhot(String screenshotName) {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
                 //after execution, you could see a folder "FailedTestsScreenshots" under src folder
 		String destination = System.getProperty("user.dir") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
 		File finalDestination = new File(destination);
-		FileUtils.copyFile(source, finalDestination);
+		try {
+			FileUtils.copyFile(source, finalDestination);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return destination;
 	}
 	
@@ -138,13 +144,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " was NOT Clicked");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 		
 	}
@@ -202,13 +203,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail("Unable to send text value to element: " + element[1]);
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 	}
 	
@@ -252,13 +248,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " value is NOT equal to expected value");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 		
 		
@@ -330,13 +321,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " was NOT long pressed");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 		
 	}
@@ -384,13 +370,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " is NOT displayed");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 	}
 	
@@ -406,13 +387,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " is displayed");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 	}
 	public boolean isDisplayed(String[] element) {
@@ -603,13 +579,8 @@ public class BaseMethods {
 			ExtentReportsUtil.fail("Unable to move to element: " + ele[1]);
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
 		}
 				
 	}
