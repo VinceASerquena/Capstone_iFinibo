@@ -39,12 +39,12 @@ public class BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	}
 	
-	public String getScreenhot(String screenshotName) {
+	public String getScreenshot(String screenshotName) {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
                 //after execution, you could see a folder "FailedTestsScreenshots" under src folder
-		String destination = System.getProperty("user.dir") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
+		String destination = System.getenv("IFINBO_PATH") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
 		File finalDestination = new File(destination);
 		try {
 			FileUtils.copyFile(source, finalDestination);
@@ -89,7 +89,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 	}
 	
@@ -140,7 +140,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 		
 	}
@@ -199,7 +199,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 	}
 	
@@ -244,7 +244,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 		
 		
@@ -317,7 +317,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 		
 	}
@@ -366,7 +366,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 	}
 	
@@ -383,7 +383,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 	}
 	public boolean isDisplayed(String[] element) {
@@ -575,7 +575,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenhot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
 		}
 				
 	}
