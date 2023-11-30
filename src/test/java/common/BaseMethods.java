@@ -1,11 +1,14 @@
 package common;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -16,6 +19,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.relevantcodes.extentreports.LogStatus;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -32,6 +38,17 @@ public class BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	}
 	
+	public String getScreenhot(String screenshotName) throws Exception {
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+                //after execution, you could see a folder "FailedTestsScreenshots" under src folder
+		String destination = System.getProperty("user.dir") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
+		File finalDestination = new File(destination);
+		FileUtils.copyFile(source, finalDestination);
+		return destination;
+	}
+	
 	public void navigateBack() {
 		driver.navigate().back();
 		System.out.println("Navigated to Previous page");
@@ -46,78 +63,106 @@ public class BaseMethods {
 	
 	public void clickOnText(String value) {
 		WebElement ele = driver.findElement(AppiumBy.xpath("//*[@text = '"+ value +"']"));
+		boolean clicked = false;
 		try {
 			ele.click();
-			System.out.println("Clicked on text: " + value);
-			ExtentReportsUtil.pass("Clicked on text: " + value);
+			clicked = true;
 		} catch (StaleElementReferenceException e) {
 			ele = driver.findElement(AppiumBy.xpath("//*[text() = '"+ value +"']"));
 			ele.click();
-			System.out.println("Clicked on text: " + value);
-			ExtentReportsUtil.pass("Clicked on text: " + value);
+			clicked = true;
+		}
+		
+		if (clicked == true) {
+			System.out.println("\"" +value + "\" text was Clicked");
+			ExtentReportsUtil.pass("\"" +value + "\" text was Clicked");
+		}
+		else {
+			System.out.println("\"" +value + "\" text was NOT Clicked");
+			ExtentReportsUtil.fail("\"" +value + "\" text was NOT Clicked");
+			BaseClass.failTC++;
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public void clickElement(String[] element) {
 		String locatorBy = element[0];
+		boolean clicked = false;
 		if (locatorBy == "accessibilityId") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				elm.click();
-				System.out.println(element[1] + " was Clicked");
-				ExtentReportsUtil.pass(element[1] + " was Clicked");
+				clicked = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				elm.click();
-				System.out.println(element[1] + " was Clicked");
-				ExtentReportsUtil.pass(element[1] + " was Clicked");
+				clicked = true;
 			}	
 		}
 		else if (locatorBy == "id") {
 			WebElement elm = driver.findElement(AppiumBy.id(element[2]));
 			try {
 				elm.click();
-				System.out.println(element[1] + " was Clicked");
-				ExtentReportsUtil.pass(element[1] + " was Clicked");
+				clicked = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				elm.click();
-				System.out.println(element[1] + " was Clicked");
-				ExtentReportsUtil.pass(element[1] + " was Clicked");
+				clicked = true;
 			}	
 		}
 		else if (locatorBy == "xpath") {
 			WebElement elm = driver.findElement(AppiumBy.xpath(element[2]));
 			try {
 				elm.click();
-				System.out.println(element[1] + " was Clicked");
-				ExtentReportsUtil.pass(element[1] + " was Clicked");
+				clicked = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				elm.click();
-				System.out.println(element[1] + " was Clicked");
-				ExtentReportsUtil.pass(element[1] + " was Clicked");
+				clicked = true;
 			}	
+		}
+		
+		if (clicked == true) {
+			System.out.println(element[1] + " was Clicked");
+			ExtentReportsUtil.pass(element[1] + " was Clicked");
+		}
+		else {
+			System.out.println(element[1] + " was NOT Clicked");
+			ExtentReportsUtil.fail(element[1] + " was NOT Clicked");
+			BaseClass.failTC++;
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}
 	
 	public void sendTextToElement(String[] element, String value) {
 		String locatorBy = element[0];
-		
+		boolean enteredText = false;
 		if (locatorBy == "accessibilityId") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				elm.clear();
-				elm.sendKeys(value);			
-				System.out.println("Send text value to element: " + element[1]);	
-				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+				elm.sendKeys(value);
+				enteredText = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				elm.clear();
 				elm.sendKeys(value);			
-				System.out.println("Send text value to element: " + element[1]);
-				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+				enteredText = true;
 			}
 		}
 		else if (locatorBy == "xpath") {
@@ -125,14 +170,12 @@ public class BaseMethods {
 			try {
 				elm.clear();
 				elm.sendKeys(value);			
-				System.out.println("Send text value to element: " + element[1]);
-				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+				enteredText = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				elm.clear();
 				elm.sendKeys(value);			
-				System.out.println("Send text value to element: " + element[1]);
-				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+				enteredText = true;
 			}
 
 		}
@@ -141,14 +184,30 @@ public class BaseMethods {
 			try {
 				elm.clear();
 				elm.sendKeys(value);			
-				System.out.println("Send text value to element: " + element[1]);
-				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+				enteredText = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				elm.clear();
 				elm.sendKeys(value);			
-				System.out.println("Send text value to element: " + element[1]);
-				ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+				enteredText = true;
+			}
+		}
+		
+		if (enteredText == true) {
+			System.out.println("Send text value to element: " + element[1]);	
+			ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+		}
+		else {
+			System.out.println("Unable to send text value to element: " + element[1]);	
+			ExtentReportsUtil.fail("Unable to send text value to element: " + element[1]);
+			BaseClass.failTC++;
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
@@ -193,6 +252,13 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " value is NOT equal to expected value");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		
@@ -200,9 +266,8 @@ public class BaseMethods {
 	
 	public void longPressElement(String[] element) {
 		String locatorBy = element[0];
-		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		
+		boolean longPressed = false;
 		
 		if (locatorBy == "accessibilityId") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
@@ -211,16 +276,14 @@ public class BaseMethods {
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				System.out.println(element[1] + " long pressed");
-				ExtentReportsUtil.pass(element[1] + " long pressed");
+				longPressed = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				Map<String, Object> params = new HashMap<>();
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				System.out.println(element[1] + " long pressed");
-				ExtentReportsUtil.pass(element[1] + " long pressed");
+				longPressed = true;
 			}
 		}
 		else if (locatorBy == "xpath") {
@@ -230,16 +293,14 @@ public class BaseMethods {
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				System.out.println(element[1] + " long pressed");
-				ExtentReportsUtil.pass(element[1] + " long pressed");
+				longPressed = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				Map<String, Object> params = new HashMap<>();
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				System.out.println(element[1] + " long pressed");
-				ExtentReportsUtil.pass(element[1] + " long pressed");
+				longPressed = true;
 			}
 		}
 		else if (locatorBy == "id") {
@@ -249,16 +310,32 @@ public class BaseMethods {
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				System.out.println(element[1] + " long pressed");
-				ExtentReportsUtil.pass(element[1] + " long pressed");
+				longPressed = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				Map<String, Object> params = new HashMap<>();
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				System.out.println(element[1] + " long pressed");
-				ExtentReportsUtil.pass(element[1] + " long pressed");
+				longPressed = true;
+			}
+		}
+		
+		if (longPressed == true) {
+			System.out.println(element[1] + " was long pressed");
+			ExtentReportsUtil.pass(element[1] + " was long pressed");
+		}
+		else {
+			System.out.println(element[1] + " was NOT long pressed");
+			ExtentReportsUtil.fail(element[1] + " was NOT long pressed");
+			BaseClass.failTC++;
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
@@ -307,6 +384,13 @@ public class BaseMethods {
 			ExtentReportsUtil.fail(element[1] + " is NOT displayed");
 			BaseClass.failTC++;
 			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -316,6 +400,19 @@ public class BaseMethods {
 		if (displayed == false) {
 			System.out.println(element[1] + " is not displayed");
 			ExtentReportsUtil.pass(element[1] + " is not displayed");
+		}
+		else {
+			System.out.println(element[1] + " is displayed");
+			ExtentReportsUtil.fail(element[1] + " is displayed");
+			BaseClass.failTC++;
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	public boolean isDisplayed(String[] element) {
@@ -448,6 +545,7 @@ public class BaseMethods {
 	public void moveToElement(String[] ele) {
 		
 		String locatorBy = ele[0];
+		boolean movedElement = false;
 		
 		if (locatorBy == "accessibilityId") {
 			WebElement element = driver.findElement(AppiumBy.accessibilityId(ele[2]));
@@ -455,15 +553,13 @@ public class BaseMethods {
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				System.out.println("Moved to element: " + ele[1]);
-				ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+				movedElement = true;				
 			} catch (StaleElementReferenceException e) {
 				element = driver.findElement(AppiumBy.accessibilityId(ele[2]));
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				System.out.println("Moved to element: " + ele[1]);
-				ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+				movedElement = true;
 			}
 		}
 		else if (locatorBy == "id") {
@@ -472,15 +568,13 @@ public class BaseMethods {
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				System.out.println("Moved to element: " + ele[1]);
-				ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+				movedElement = true;
 			} catch (StaleElementReferenceException e) {
 				element = driver.findElement(AppiumBy.id(ele[2]));
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
-				System.out.println("Moved to element: " + ele[1]);
-				ExtentReportsUtil.pass("Moved to element: " + ele[1]);
 				action.perform();	
+				movedElement = true;
 			}
 		}
 		else if (locatorBy == "xpath") {
@@ -489,17 +583,33 @@ public class BaseMethods {
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				System.out.println("Moved to element: " + ele[1]);
-				ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+				movedElement = true;
 			} catch (StaleElementReferenceException e) {
 				element = driver.findElement(AppiumBy.xpath(ele[2]));
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				System.out.println("Moved to element: " + ele[1]);
-				ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+				movedElement = true;
 			}
 			
+		}
+		
+		if (movedElement == true) {
+			System.out.println("Moved to element: " + ele[1]);
+			ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+		}
+		else {
+			System.out.println("Unable to move to element: " + ele[1]);
+			ExtentReportsUtil.fail("Unable to move to element: " + ele[1]);
+			BaseClass.failTC++;
+			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenhot("Failed")).build().toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 				
 	}

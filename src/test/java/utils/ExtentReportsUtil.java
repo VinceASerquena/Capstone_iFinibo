@@ -11,6 +11,7 @@ import com.relevantcodes.extentreports.LogStatus;
 public class ExtentReportsUtil {
 	public static ExtentReports extent;
 	public static ExtentTest logger;
+	public static String screenshot;
 	
 	public static void startExtentReport(String path) {
 		extent = new ExtentReports(System.getProperty("user.dir")+ "\\ExtentReport\\"+ path, true);
@@ -46,7 +47,7 @@ public class ExtentReportsUtil {
 	}
 	
 	public static void fail(String details) {
-		logger.log(LogStatus.FAIL, details);
+		logger.log(LogStatus.FAIL, details); 
 	}
 	
 	public static void info(String details) {
@@ -63,5 +64,5 @@ public class ExtentReportsUtil {
 	
 	public static void endTest() {
 		extent.endTest(logger);
-	}
+	}	
 }

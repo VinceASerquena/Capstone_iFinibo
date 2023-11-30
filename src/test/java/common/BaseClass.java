@@ -94,5 +94,4 @@ public class BaseClass {
 		Logger.log("End Report");
 	}
     
-    
 }
