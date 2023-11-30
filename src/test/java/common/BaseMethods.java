@@ -44,7 +44,8 @@ public class BaseMethods {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
                 //after execution, you could see a folder "FailedTestsScreenshots" under src folder
-		String destination = System.getenv("IFINBO_PATH") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
+//		String destination = System.getenv("IFINBO_PATH") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
+		String destination = "../FailedTestsScreenshots/"+screenshotName+dateName+".png";
 		File finalDestination = new File(destination);
 		try {
 			FileUtils.copyFile(source, finalDestination);
