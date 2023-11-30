@@ -21,7 +21,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.aventstack.extentreports.MediaEntityBuilder;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.appium.java_client.AppiumBy;
@@ -39,18 +38,18 @@ public class BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	}
 	
-	public String getScreenshot(String screenshotName) {
+	public String getScreenshot() {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-                //after execution, you could see a folder "FailedTestsScreenshots" under src folder
-		String destination = System.getProperty("user.dir") + "\\ExtentReport\\FailedTestsScreenshots\\"+screenshotName+dateName+".png";
-		String screenshotLoc = "../FailedTestsScreenshots/"+screenshotName+dateName+".png";
+        //String for saving the screenshot to desired path
+		String destination = System.getProperty("user.dir") + "\\ExtentReport\\FailedTestsScreenshots\\Error - "+dateName+".png";
+		//STring for the output for extent report
+		String screenshotLoc = "../FailedTestsScreenshots/Error - "+dateName+".png";
 		File finalDestination = new File(destination);
 		try {
 			FileUtils.copyFile(source, finalDestination);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return screenshotLoc;
@@ -88,9 +87,9 @@ public class BaseMethods {
 			System.out.println("\"" +value + "\" text was NOT Clicked");
 			ExtentReportsUtil.fail("\"" +value + "\" text was NOT Clicked");
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 	}
 	
@@ -139,9 +138,9 @@ public class BaseMethods {
 			System.out.println(element[1] + " was NOT Clicked");
 			ExtentReportsUtil.fail(element[1] + " was NOT Clicked");
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 		
 	}
@@ -198,9 +197,9 @@ public class BaseMethods {
 			System.out.println("Unable to send text value to element: " + element[1]);	
 			ExtentReportsUtil.fail("Unable to send text value to element: " + element[1]);
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 	}
 	
@@ -243,9 +242,9 @@ public class BaseMethods {
 			System.out.println(element[1] + " value is NOT equal to expected value");
 			ExtentReportsUtil.fail(element[1] + " value is NOT equal to expected value");
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 		
 		
@@ -316,9 +315,9 @@ public class BaseMethods {
 			System.out.println(element[1] + " was NOT long pressed");
 			ExtentReportsUtil.fail(element[1] + " was NOT long pressed");
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 		
 	}
@@ -365,9 +364,9 @@ public class BaseMethods {
 			System.out.println(element[1] + " is NOT displayed");
 			ExtentReportsUtil.fail(element[1] + " is NOT displayed");
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 	}
 	
@@ -382,9 +381,9 @@ public class BaseMethods {
 			System.out.println(element[1] + " is displayed");
 			ExtentReportsUtil.fail(element[1] + " is displayed");
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 	}
 	public boolean isDisplayed(String[] element) {
@@ -574,9 +573,9 @@ public class BaseMethods {
 			System.out.println("Unable to move to element: " + ele[1]);
 			ExtentReportsUtil.fail("Unable to move to element: " + ele[1]);
 			BaseClass.failTC++;
-			((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot("Failed")));
+					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
 		}
 				
 	}
