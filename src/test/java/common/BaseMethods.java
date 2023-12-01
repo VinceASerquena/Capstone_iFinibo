@@ -52,7 +52,7 @@ public class BaseMethods {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return screenshotLoc;
+		return destination;
 	}
 	
 	public void navigateBack() {
