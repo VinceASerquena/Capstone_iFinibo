@@ -44,7 +44,7 @@ public class BaseMethods {
 		File source = ts.getScreenshotAs(OutputType.FILE);
         //String for saving the screenshot to desired path
 		String destination = System.getProperty("user.dir") + "\\ExtentReport\\FailedTestsScreenshots\\Error - "+dateName+".png";
-		//STring for the output for extent report
+		//String for the output for extent report
 		String screenshotLoc = "../FailedTestsScreenshots/Error - "+dateName+".png";
 		File finalDestination = new File(destination);
 		try {
@@ -52,7 +52,7 @@ public class BaseMethods {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return destination;
+		return screenshotLoc;
 	}
 	
 	public void navigateBack() {
