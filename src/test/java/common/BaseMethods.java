@@ -46,7 +46,7 @@ public class BaseMethods {
         //String for saving the screenshot to desired path
 		String destination = System.getProperty("user.dir") + "\\ExtentReport\\PassedTestsScreenshots\\Passed - "+dateName+".png";
 		//String for the output for extent report
-		String screenshotLoc = "../FailedTestsScreenshots/Error - "+dateName+".png";
+		String screenshotLoc = "../PassedTestsScreenshots/Passed - "+dateName+".png";
 		File finalDestination = new File(destination);
 		try {
 			FileUtils.copyFile(source, finalDestination);
