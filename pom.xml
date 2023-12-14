@@ -118,7 +118,8 @@
         </plugins>
     </build>
 
-    <profiles>
+
+    <!--<profiles>
         <profile>
             <id>sample-test</id>
             <build>
@@ -151,5 +152,5 @@
                 </plugins>
             </build>
         </profile>
-    </profiles>
+    </profiles>-->
 </project>

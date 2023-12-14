@@ -38,7 +38,26 @@ public class BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	}
 	
-	public String getScreenshot() {
+	//For Passed Steps, get screenshot
+	public String passedGetScreenshot() {
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+        //String for saving the screenshot to desired path
+		String destination = System.getProperty("user.dir") + "\\ExtentReport\\PassedTestsScreenshots\\Passed - "+dateName+".png";
+		//String for the output for extent report
+		String screenshotLoc = "../FailedTestsScreenshots/Error - "+dateName+".png";
+		File finalDestination = new File(destination);
+		try {
+			FileUtils.copyFile(source, finalDestination);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return screenshotLoc;
+	}
+	
+	//For Failed Steps, get screenshot
+	public String failedGetScreenshot() {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -59,12 +78,16 @@ public class BaseMethods {
 		driver.navigate().back();
 		System.out.println("Navigated to Previous page");
 		ExtentReportsUtil.pass("Navigated to Previous page");
+		ExtentReportsUtil.logger.log(LogStatus.PASS, 
+				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
 	public void pressBackKey() {
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		System.out.println("Pressed Back Key");
 		ExtentReportsUtil.pass("Pressed Back Key");
+		ExtentReportsUtil.logger.log(LogStatus.PASS, 
+				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
 	public void clickOnText(String value) {
@@ -82,6 +105,9 @@ public class BaseMethods {
 		if (clicked == true) {
 			System.out.println("\"" +value + "\" text was Clicked");
 			ExtentReportsUtil.pass("\"" +value + "\" text was Clicked");
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println("\"" +value + "\" text was NOT Clicked");
@@ -89,14 +115,14 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 	}
 	
 	public void clickElement(String[] element) {
-		String locatorBy = element[0];
+		String locatorBy = element[0].toLowerCase();
 		boolean clicked = false;
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				elm.click();
@@ -133,6 +159,9 @@ public class BaseMethods {
 		if (clicked == true) {
 			System.out.println(element[1] + " was Clicked");
 			ExtentReportsUtil.pass(element[1] + " was Clicked");
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println(element[1] + " was NOT Clicked");
@@ -140,15 +169,15 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 		
 	}
 	
 	public void sendTextToElement(String[] element, String value) {
-		String locatorBy = element[0];
+		String locatorBy = element[0].toLowerCase();
 		boolean enteredText = false;
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				elm.clear();
@@ -192,6 +221,9 @@ public class BaseMethods {
 		if (enteredText == true) {
 			System.out.println("Send text value to element: " + element[1]);	
 			ExtentReportsUtil.pass("Send text value to element: " + element[1]);
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println("Unable to send text value to element: " + element[1]);	
@@ -199,14 +231,14 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 	}
 	
 	public void validateIfCorrectText(String[] element, String expectedValue) {
-		String locatorBy = element[0];
+		String locatorBy = element[0].toLowerCase();
 		String actualValue = null;
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				actualValue = elm.getText();
@@ -237,6 +269,9 @@ public class BaseMethods {
 		if (actualValue.contentEquals(expectedValue)) {
 			System.out.println(element[1] + " value is equal to expected value");
 			ExtentReportsUtil.pass(element[1] + " value is equal to expected value");	
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println(element[1] + " value is NOT equal to expected value");
@@ -244,18 +279,18 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 		
 		
 	}
 	
 	public void longPressElement(String[] element) {
-		String locatorBy = element[0];
+		String locatorBy = element[0].toLowerCase();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		boolean longPressed = false;
 		
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				Map<String, Object> params = new HashMap<>();
@@ -310,6 +345,9 @@ public class BaseMethods {
 		if (longPressed == true) {
 			System.out.println(element[1] + " was long pressed");
 			ExtentReportsUtil.pass(element[1] + " was long pressed");
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println(element[1] + " was NOT long pressed");
@@ -317,7 +355,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 		
 	}
@@ -326,7 +364,7 @@ public class BaseMethods {
 		WebElement elm;
 		boolean display = false;
 		
-		if (element[0] == "accessibilityId") {
+		if (element[0] == "accessibilityid") {
 			try {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				display = elm.isDisplayed();
@@ -359,6 +397,9 @@ public class BaseMethods {
 		if (display == true) {
 			System.out.println(element[1] + " is displayed");
 			ExtentReportsUtil.pass(element[1] + " is displayed");
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println(element[1] + " is NOT displayed");
@@ -366,7 +407,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 	}
 	
@@ -376,6 +417,9 @@ public class BaseMethods {
 		if (displayed == false) {
 			System.out.println(element[1] + " is not displayed");
 			ExtentReportsUtil.pass(element[1] + " is not displayed");
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println(element[1] + " is displayed");
@@ -383,12 +427,12 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 	}
 	public boolean isDisplayed(String[] element) {
 		try {
-			if (element[0] == "accessibilityId") {
+			if (element[0] == "accessibilityid") {
 				driver.findElement(AppiumBy.accessibilityId(element[2]));
 			}
 			else if (element[0] == "id") {
@@ -422,19 +466,23 @@ public class BaseMethods {
 		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+element[2]+")"));
 		System.out.println("Scrolled to: " + element[1]);
 		ExtentReportsUtil.pass("Scrolled to: " + element[1]);
+		ExtentReportsUtil.logger.log(LogStatus.PASS, 
+				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
 	public void scrollToText(String text) {
 		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
 		System.out.println("Scrolled to Text: " + text);
 		ExtentReportsUtil.pass("Scrolled to Text: " + text);
+		ExtentReportsUtil.logger.log(LogStatus.PASS, 
+				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
 	public boolean flingGesture(String[] element) {
-		String locatorBy = element[0];
+		String locatorBy = element[0].toLowerCase();
 		boolean canScrollMore = true;
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			Map<String, Object> params = new HashMap<>();
 			params.put("elementId", ((RemoteWebElement) elm).getId());
@@ -463,9 +511,9 @@ public class BaseMethods {
 	}
 	
 	public void dragGesture(String[] element, int coordinateX, int coordinateY) {
-		String locatorBy = element[0];
+		String locatorBy = element[0].toLowerCase();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			Map<String, Object> params = new HashMap<>();
 			params.put("elementId", ((RemoteWebElement) elm).getId());
@@ -515,10 +563,10 @@ public class BaseMethods {
 	
 	public void moveToElement(String[] ele) {
 		
-		String locatorBy = ele[0];
+		String locatorBy = ele[0].toLowerCase();
 		boolean movedElement = false;
 		
-		if (locatorBy == "accessibilityId") {
+		if (locatorBy == "accessibilityid") {
 			WebElement element = driver.findElement(AppiumBy.accessibilityId(ele[2]));
 			try {
 				Actions action = new Actions(driver);
@@ -568,6 +616,9 @@ public class BaseMethods {
 		if (movedElement == true) {
 			System.out.println("Moved to element: " + ele[1]);
 			ExtentReportsUtil.pass("Moved to element: " + ele[1]);
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 		}
 		else {
 			System.out.println("Unable to move to element: " + ele[1]);
@@ -575,7 +626,7 @@ public class BaseMethods {
 			BaseClass.failTC++;
 			
 			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
-					ExtentReportsUtil.logger.addScreenCapture(getScreenshot()));
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 				
 	}

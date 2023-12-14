@@ -27,10 +27,12 @@ public class BaseClass {
 	MutableCapabilities capabilities = new UiAutomator2Options();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
     
-	
-	String userName = System.getenv("BROWSERSTACK_USERNAME");
-	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
-	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+	String userName = "vincealecserquen_PUL7Gx";
+	String accessKey = "6Nakjv6gG8CQfeyCxTHW";
+	String buildName = "Test Build";	
+//	String userName = System.getenv("BROWSERSTACK_USERNAME");
+//	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+//	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 //	String app = System.getenv("BROWSERSTACK_APP_ID");
 	String app = "bs://f80d14888f1cf7e503a7de6366ec985e13631d03";
 	String URL2 = "http://" +  userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
@@ -58,6 +60,10 @@ public class BaseClass {
 		System.out.println(testname);
 		capabilities.setCapability("name", testname);
 		driver = new AndroidDriver(new URL(URL2),capabilities);
+		System.out.println("deviceName");
+		System.out.println(driver.getCapabilities().getCapability("deviceName").toString());
+		System.out.println("deviceModel");
+		System.out.println(driver.getCapabilities().getCapability("deviceModel").toString());
     }
 
     @AfterMethod(alwaysRun=true)
