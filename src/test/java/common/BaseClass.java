@@ -50,6 +50,7 @@ public class BaseClass {
         capabilities.setCapability("deviceName", "Samsung Galaxy S21");
         capabilities.setCapability("os_Version", "12.0");
         capabilities.setCapability("Project", "Vince's BS iFinibo Automation");
+        capabilities.setCapability("build", buildName);
         capabilities.setCapability("app", app);        
     }
     
@@ -58,12 +59,13 @@ public class BaseClass {
     	String testname = m.getName();
 		System.out.println(testname);
 		capabilities.setCapability("name", testname);
-		capabilities.setCapability("build", buildName);
 		driver = new AndroidDriver(new URL(URL2),capabilities);
 		System.out.println("deviceName");
 		System.out.println(driver.getCapabilities().getCapability("deviceName").toString());
 		System.out.println("deviceModel");
 		System.out.println(driver.getCapabilities().getCapability("deviceModel").toString());
+		System.out.println("BuildName");
+		System.out.println(buildName);
     }
 
     @AfterMethod(alwaysRun=true)
