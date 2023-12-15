@@ -64,8 +64,6 @@ public class BaseClass {
 		System.out.println(driver.getCapabilities().getCapability("deviceName").toString());
 		System.out.println("deviceModel");
 		System.out.println(driver.getCapabilities().getCapability("deviceModel").toString());
-		System.out.println("BuildName");
-		System.out.println(buildName);
     }
 
     @AfterMethod(alwaysRun=true)
