@@ -33,8 +33,8 @@ public class BaseClass {
 	String userName = System.getenv("BROWSERSTACK_USERNAME");
 	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
-//	String app = System.getenv("BROWSERSTACK_APP_ID");
-	String app = "bs://f80d14888f1cf7e503a7de6366ec985e13631d03";
+	String app = System.getenv("BROWSERSTACK_APP_ID");
+//	String app = "bs://f80d14888f1cf7e503a7de6366ec985e13631d03";
 	String URL2 = "http://" +  userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 	
     @BeforeSuite
