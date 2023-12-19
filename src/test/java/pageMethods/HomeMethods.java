@@ -10,6 +10,9 @@ public class HomeMethods extends BaseMethods {
 		super(driver);
 	} 
 	
+	/**
+	 * Validation of Home Elements
+	 */
 	public void validateHomeLoanEMI() {
 		assertElementDisplayed(HomePage.Title);
 		assertElementDisplayed(HomePage.LoanAndEmi_Header);
@@ -21,6 +24,9 @@ public class HomeMethods extends BaseMethods {
 		assertElementDisplayed(HomePage.LAE_HomeLoanDocuments_Text);
 	}
 	
+	/**
+	 * Validation of LoanEMI Collapse Function
+	 */
 	public void validateLoanEMICollapse() {
 		clickElement(HomePage.LoanAndEmi_Collapse);
 		assertElementNotDisplayed(HomePage.LAE_LoanBasic_Text);
@@ -30,6 +36,9 @@ public class HomeMethods extends BaseMethods {
 		assertElementNotDisplayed(HomePage.LAE_HomeLoanDocuments_Text);
 	}
 	
+	/**
+	 * Validate of LoanEMI Expand Function
+	 */
 	public void validateLoanEMIExpand() {
 		clickElement(HomePage.LoanAndEmi_Collapse);
 		assertElementDisplayed(HomePage.LAE_LoanBasic_Text);

@@ -10,6 +10,9 @@ public class LoanBasicMethods extends BaseMethods {
 		super(driver);
 	}
 	
+	/**
+	 * Validate Loan Basic Elements
+	 */
 	public void validateLoanBasic() {
 		assertElementDisplayed(LoanEMIPage.LoanBasic_Title);
 		assertElementDisplayed(LoanEMIPage.Calculator_Header);

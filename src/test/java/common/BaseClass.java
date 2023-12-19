@@ -2,6 +2,7 @@ package common;
 
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -26,22 +27,21 @@ public class BaseClass {
 	public static int failTC;
 	MutableCapabilities capabilities = new UiAutomator2Options();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-    
-//	String userName = "vincealecserquen_PUL7Gx";
-//	String accessKey = "6Nakjv6gG8CQfeyCxTHW";
-//	String buildName = "Test Build";	
+    	
+    //Jenkins Browserstack Integration Variables
 	String userName = System.getenv("BROWSERSTACK_USERNAME");
 	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
-//	String app = System.getenv("BROWSERSTACK_APP_ID");
 	String app = "bs://f80d14888f1cf7e503a7de6366ec985e13631d03";
 	String URL2 = "http://" +  userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 	
+	//Initializing ExtentReport
     @BeforeSuite
 	public void setupReport() {
 		ExtentReportsUtil.startExtentReport("\\Reports\\Test.html");
 	}  
     
+    //Setting Browserstack Capabilites
     @BeforeTest(alwaysRun=true)
     public void setUpRunEnv() throws Exception {
     	failTC = 0;
@@ -54,27 +54,31 @@ public class BaseClass {
         capabilities.setCapability("app", app);        
     }
     
+    //Setting Additional Browserstack Capabilities
     @BeforeMethod
     public void beforeMethod(Method m) throws Exception{
     	String testname = m.getName();
 		System.out.println(testname);
 		capabilities.setCapability("name", testname);
 		driver = new AndroidDriver(new URL(URL2),capabilities);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 		System.out.println("deviceName");
 		System.out.println(driver.getCapabilities().getCapability("deviceName").toString());
 		System.out.println("deviceModel");
 		System.out.println(driver.getCapabilities().getCapability("deviceModel").toString());
     }
 
+    //Setting the ExtentReport Results
     @AfterMethod(alwaysRun=true)
     public void afterMethod(ITestResult result) throws Exception {		    	
     	ExtentReportsUtil.getExtentResult(result);
 		Logger.log("Results Retrieved");
     }
     
+    //Setting the Status of Test in Browserstack
     @AfterTest
     public void tearDown() {  
-    	System.out.println(failTC);
+    	System.out.println("Failed Steps: " + failTC);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
     	try {
 			if (failTC == 0) {
@@ -94,6 +98,7 @@ public class BaseClass {
     	Logger.log("End Test");
     }
     
+    //Closing ExtentReports
     @AfterSuite
 	public void endTest() {
 		ExtentReportsUtil.flushExtentReport();

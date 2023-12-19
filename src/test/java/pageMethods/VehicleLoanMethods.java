@@ -15,6 +15,9 @@ public class VehicleLoanMethods extends BaseMethods{
 		super(driver);
 	}
 	
+	/**
+	 * Validate Vehicle Loan Elements
+	 */
 	public void validateVehicleLoan() {
 		assertElementDisplayed(VehicleLoanPage.VehicleLoan_Title);
 		assertElementDisplayed(VehicleLoanPage.DownPaymentRequirement_Textbox);
@@ -26,6 +29,14 @@ public class VehicleLoanMethods extends BaseMethods{
 		assertElementDisplayed(VehicleLoanPage.Calculate_Button);
 	}
 
+	/**
+	 * Enter Loan Details to Textbox elements based on given parameters
+	 * @param VehiclePrice
+	 * @param DPRequirement
+	 * @param DPAmount
+	 * @param AnnualInterest
+	 * @param LoanDuration
+	 */
 	public void enterLoanDetailsTextbox(String VehiclePrice, String DPRequirement, String DPAmount, String AnnualInterest, String LoanDuration) throws Exception {
 		data.getCounter();
 		sendTextToElement(VehicleLoanPage.VehiclePrice_Textbox, VehiclePrice);
@@ -35,6 +46,10 @@ public class VehicleLoanMethods extends BaseMethods{
 		sendTextToElement(VehicleLoanPage.LoanTerm_Textbox, LoanDuration);
 	}
 	
+	/**
+	 * Enter Loan Term to Dropdown element based on parameter
+	 * @param loanTerm
+	 */
 	public void enterLoanTerms(String loanTerm) throws Exception {
 		
 		data.getCounter();
@@ -50,7 +65,10 @@ public class VehicleLoanMethods extends BaseMethods{
 			clickElement(VehicleLoanPage.LoanTerm_Dropdown_Months);
 		}
 	}
-	//update
+	
+	/**
+	 * Validate Vehicle Loan Calculate Result
+	 */
 	public void validateLoanCalculateResult() throws Exception {
 		data.getCounter();
 		DecimalFormat df = new DecimalFormat("#,##,##,###.00");
@@ -64,6 +82,9 @@ public class VehicleLoanMethods extends BaseMethods{
 		validateIfCorrectText(VehicleLoanPage.TotalPayment_Value, df.format(Double.parseDouble(data.getTotalPayment())));
 	}
 	
+	/**
+	 * Validate Vehicle Loan Details - Yearly Table
+	 */
 	public void validateLoanDetailsYearlyTable() {
 		assertElementDisplayed(VehicleLoanPage.Table_Graph);
 		assertElementDisplayed(VehicleLoanPage.TY_YearNumber_Header);
@@ -72,6 +93,9 @@ public class VehicleLoanMethods extends BaseMethods{
 		assertElementDisplayed(VehicleLoanPage.TY_YearEndLoanBalance_Header);
 	}
 	
+	/**
+	 * Validate Vehicle Loan Details - Monthly Table
+	 */
 	public void validateLoanDetailsMonthlyTable() {
 		assertElementDisplayed(VehicleLoanPage.Table_Monthly);
 		clickElement(VehicleLoanPage.Table_Monthly);
@@ -81,6 +105,9 @@ public class VehicleLoanMethods extends BaseMethods{
 		assertElementDisplayed(VehicleLoanPage.TM_MonthEndLoanBalance_Header);
 	}
 	
+	/**
+	 * Validate Vehicle Loan Details - Graph Table
+	 */
 	public void validateLoanDetailsGraph() {
 		assertElementDisplayed(VehicleLoanPage.Table_Graph);
 		clickElement(VehicleLoanPage.Table_Graph);
