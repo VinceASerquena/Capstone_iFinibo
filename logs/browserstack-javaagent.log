@@ -750,3 +750,323 @@
 	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
 	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
 
+15:47:01.018 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:47:01.022 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:47:01.225 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:47:01.225 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:47:01.226 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:48:56.152 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:48:56.154 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:48:56.356 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:48:56.356 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:48:56.357 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:50:32.422 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:50:32.424 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:50:32.631 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:50:32.632 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:50:32.633 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:50:39.512 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:50:39.514 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:50:39.763 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:50:39.764 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:50:39.766 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:52:39.545 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:52:39.547 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:52:39.746 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:52:39.746 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:52:39.748 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:54:36.286 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:54:36.289 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:54:36.459 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:54:36.459 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:54:36.459 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:55:59.894 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:55:59.896 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:56:00.073 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:56:00.073 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:56:00.074 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:57:19.487 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:57:19.489 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:57:19.701 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:57:19.702 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:57:19.703 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+15:59:48.171 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+15:59:48.173 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+15:59:48.369 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+15:59:48.370 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+15:59:48.370 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:02:26.807 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:02:26.809 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:02:27.009 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:02:27.009 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:02:27.009 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:03:38.547 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:03:38.549 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:03:38.770 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:03:38.770 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:03:38.776 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:04:11.561 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:04:11.563 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:04:11.761 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:04:11.761 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:04:11.762 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:06:59.845 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:06:59.847 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:07:00.054 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:07:00.054 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:07:00.055 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:12:14.793 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:12:14.799 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:12:15.031 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:12:15.033 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:12:15.034 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:45:21.780 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:45:21.781 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:45:21.994 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:45:21.994 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:45:21.995 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:51:38.897 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:51:38.900 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:51:39.116 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:51:39.116 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:51:39.116 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:51:50.615 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:51:50.622 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:51:50.844 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:51:50.844 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:51:50.847 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:52:19.945 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:52:19.947 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:52:20.163 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:52:20.164 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:52:20.165 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:52:51.941 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:52:51.944 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:52:52.122 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:52:52.122 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:52:52.122 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+
+16:54:42.350 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+16:54:42.353 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.3.0
+16:54:42.543 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\browserstack.yml
+16:54:42.543 [main] ERROR c.b.config.BrowserStackConfig - [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+16:54:42.545 [main] ERROR c.browserstack.BrowserStackJavaAgent - Something went wrong - java.lang.RuntimeException: [Invalid Path] Config file does not exist at any parent directory of C:\Users\COLLABERA.DIGITAL\eclipse-workspace\AndroidIFiniboAuto. Please include a browserstack.yml/browserstack.yaml file containing configuration for tests.
+	at com.browserstack.config.BrowserStackConfig.getInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.b(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+

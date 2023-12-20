@@ -28,4 +28,22 @@
 			</class>
         </classes>
     </test>
+    <test name="Test Case - Invalid Inputs - Loan Basic Page">
+        <classes>
+			<class name="scripts.TC01_InvalidLoanAndEMI">
+				<methods>
+					<include name="Fin_04"/>
+				</methods>
+			</class>
+        </classes>
+    </test>
+    <test name="Test Case - Invalid Inputs - Vehicle Loan Page">
+        <classes>
+			<class name="scripts.TC01_InvalidLoanAndEMI">
+				<methods>
+					<include name="Fin_05"/>
+				</methods>
+			</class>
+        </classes>
+    </test>
 </suite>

@@ -41,39 +41,31 @@ public class TC01_InvalidLoanAndEMI extends BaseClass {
 		LoanAmountMethods lam = new LoanAmountMethods(driver);
 		lam.validateLoanAmount();
 		
-		//ENTER INVALID INPUTS
 		ExtentReportsUtil.info("Enter Loan Details - Invalid Characters");
 		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
 				data1.getAnnualInterestRate(), data1.getLoanDuration());
-		//VALIDATE CALCULATE BUTTON IS DISABLED
 		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
 		
-		//ENTER INVALID INPUTS
 		ExtentReportsUtil.info("Enter Loan Details - Invalid Interest Rate");
 		data1.setCounter();
 		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
 				data1.getAnnualInterestRate(), data1.getLoanDuration());
-		//VALIDATE CALCULATE BUTTON IS DISABLED
 		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
 		
-		//ENTER INVALID INPUTS
 		ExtentReportsUtil.info("Enter Loan Details - Invalid Loan Term Duration(Years)");
 		data1.setCounter();
 		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
 				data1.getAnnualInterestRate(), data1.getLoanDuration());
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Years);
-		//VALIDATE CALCULATE BUTTON IS DISABLED
 		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
 		
-		//ENTER INVALID INPUTS
 		ExtentReportsUtil.info("Enter Loan Details - Invalid Loan Term Duration(Months)");
 		data1.setCounter();
 		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
 				data1.getAnnualInterestRate(), data1.getLoanDuration());
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Months);
-		//VALIDATE CALCULATE BUTTON IS DISABLED
 		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
 		
 		data1.resetCounter();
@@ -100,14 +92,12 @@ public class TC01_InvalidLoanAndEMI extends BaseClass {
 		VehicleLoanMethods vlm = new VehicleLoanMethods(driver);
 		vlm.validateVehicleLoan();
 		
-		//ENTER INVALID DETAILS
 		ExtentReportsUtil.info("Enter Vehicle Loan Details");
 		vlm.enterLoanDetailsTextbox(data2.getVehiclePrice(),
 				data2.getDownPaymentRequirement(), 
 				data2.getDownPaymentAmount(), 
 				data2.getAnnualInterstRate(),
 				data2.getLoanDuration());
-		//VALIDATE CALCULATE BUTTON
 		vlm.validateElementIsDisabled(VehicleLoanPage.Calculate_Button);
 		
 	

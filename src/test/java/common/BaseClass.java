@@ -29,9 +29,9 @@ public class BaseClass {
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
     
     //For Local Run
-//    String userName = "vincealecserquen_PUL7Gx";
-//	String accessKey = "6Nakjv6gG8CQfeyCxTHW";
-//	String buildName = "VS Test";
+    //String userName = "vincealecserquen_PUL7Gx";
+	//String accessKey = "6Nakjv6gG8CQfeyCxTHW";
+	//String buildName = "VS Test";
     //Jenkins Browserstack Integration Variables
 	String userName = System.getenv("BROWSERSTACK_USERNAME");
 	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");

@@ -35,7 +35,7 @@ public class BaseMethods {
 	
 	public BaseMethods(AndroidDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 	}
 	
 	//For Passed Steps, get screenshot
