@@ -1,0 +1,58 @@
+11:56:44.621 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackEnabled
+11:56:44.622 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+11:56:44.633 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackEnabled : true P/CapstoneBanking
+11:56:44.638 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackDisabled
+11:56:44.639 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+11:56:44.650 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackDisabled : false P/CapstoneBanking
+11:56:46.115 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackEnabled
+11:56:46.119 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+11:56:46.141 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackEnabled : true P/CapstoneBanking
+11:56:46.147 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackDisabled
+11:56:46.149 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+11:56:46.165 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackDisabled : false P/CapstoneBanking
+11:56:52.024 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackEnabled
+11:56:52.024 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+11:56:52.037 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackEnabled : true P/Appium
+11:56:52.042 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackDisabled
+11:56:52.042 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+11:56:52.054 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackDisabled : false P/Appium
+12:21:57.632 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackEnabled
+12:21:57.633 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:21:57.645 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackEnabled : true P/AndroidIFiniboAuto
+12:21:57.652 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackDisabled
+12:21:57.652 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:21:57.663 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackDisabled : false P/AndroidIFiniboAuto
+12:29:15.312 [Worker-110: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+12:29:15.315 [Worker-110: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+12:29:15.326 [Worker-110: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:29:15.331 [Worker-110: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
+12:29:25.183 [main] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+12:29:33.668 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackEnabled
+12:29:33.668 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:29:33.678 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackEnabled : true P/AndroidIFiniboAuto
+12:29:33.683 [main] INFO  c.b.a.BrowserStackPropertyTester - Testing : isBrowserStackDisabled
+12:29:33.683 [main] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:29:33.695 [main] INFO  c.b.a.BrowserStackPropertyTester - Validation Result isBrowserStackDisabled : false P/AndroidIFiniboAuto
+12:30:48.011 [Worker-97: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+12:30:48.020 [Worker-97: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:30:48.024 [Worker-97: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
+12:39:43.961 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+12:39:43.962 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+12:39:43.970 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:39:43.974 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
+12:39:58.124 [main] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+12:42:56.995 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+12:42:57.005 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+12:42:57.009 [Worker-114: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
+13:51:04.296 [Worker-124: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+13:51:04.297 [Worker-124: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+13:51:04.307 [Worker-124: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+13:51:04.311 [Worker-124: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
+14:38:43.232 [Worker-137: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+14:38:43.232 [Worker-137: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+14:38:43.243 [Worker-137: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+14:38:43.248 [Worker-137: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
+14:43:29.203 [Worker-138: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - The previous launch removed.
+14:43:29.203 [Worker-138: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - Existing javaagentArgline (BROWSERSTACK_JAVAAGENT_ARGLINE) in plugin prefs is 
+14:43:29.214 [Worker-138: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - Prefs Keys []
+14:43:29.219 [Worker-138: Launching AndroidIFiniboAuto_src.test.resources.suite.iFinibo-Negative-testng.xml] INFO  c.b.BrowserStackPluginActivator - The environment variables for the launch configuration are {BROWSERSTACK_EXEC_SOURCE=eclipse/1.0.3}
