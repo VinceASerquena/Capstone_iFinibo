@@ -29,13 +29,13 @@ public class BaseClass {
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
     
     //For Local Run
-    String userName = "vincealecserquen_PUL7Gx";
-	String accessKey = "6Nakjv6gG8CQfeyCxTHW";
-	String buildName = "VS Test";
+//    String userName = "vincealecserquen_PUL7Gx";
+//	String accessKey = "6Nakjv6gG8CQfeyCxTHW";
+//	String buildName = "VS Test";
     //Jenkins Browserstack Integration Variables
-//	String userName = System.getenv("BROWSERSTACK_USERNAME");
-//	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
-//	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+	String userName = System.getenv("BROWSERSTACK_USERNAME");
+	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 	String app = "bs://f80d14888f1cf7e503a7de6366ec985e13631d03";
 	String URL2 = "http://" +  userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 	
