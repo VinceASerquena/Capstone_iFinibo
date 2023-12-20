@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [iFinibo Automate]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test Case - Validate Loan and EMI(failed)">
+  <test thread-count="5" name="Test Case - Invalid Inputs - Loan Basic Page(failed)">
     <classes>
-      <class name="scripts.TC01_ValidateLoanAndEMI">
+      <class name="scripts.TC01_InvalidLoanAndEMI">
         <methods>
-          <include name="Fin_01"/>
+          <include name="beforeMethod"/>
+          <include name="Fin_04"/>
           <include name="tearDown"/>
-          <include name="Fin_02"/>
-          <include name="Fin_03"/>
           <include name="setupReport"/>
           <include name="endTest"/>
           <include name="setUpRunEnv"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- scripts.TC01_ValidateLoanAndEMI -->
+      </class> <!-- scripts.TC01_InvalidLoanAndEMI -->
     </classes>
-  </test> <!-- Test Case - Validate Loan and EMI(failed) -->
+  </test> <!-- Test Case - Invalid Inputs - Loan Basic Page(failed) -->
 </suite> <!-- Failed suite [iFinibo Automate] -->

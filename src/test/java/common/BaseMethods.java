@@ -285,6 +285,104 @@ public class BaseMethods {
 		
 	}
 	
+	public void validateElementIsDisabled(String[] element) {
+		String locatorBy = element[0].toLowerCase();
+		String disabled = "true";
+		if (locatorBy == "accessibilityid") {
+			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+			try {
+				disabled = elm.getAttribute("enabled");
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+				disabled = elm.getAttribute("enabled");
+			}
+		}
+		else if (locatorBy == "xpath") {
+			WebElement elm = driver.findElement(AppiumBy.xpath(element[2]));
+			try {
+				disabled = elm.getAttribute("enabled");
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.xpath(element[2]));
+				disabled = elm.getAttribute("enabled");
+			}
+		}
+		else if (locatorBy == "id") {
+			WebElement elm = driver.findElement(AppiumBy.id(element[2]));
+			try {
+				disabled = elm.getAttribute("enabled");
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.id(element[2]));
+				disabled = elm.getAttribute("enabled");
+			}
+		}
+		
+		if (disabled.contentEquals("false")) {
+			System.out.println(element[1] + " is disabled");
+			ExtentReportsUtil.pass(element[1] + " is disabled");	
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
+		}
+		else {
+			System.out.println(element[1] + " is enabled");
+			ExtentReportsUtil.fail(element[1] + " is enabled");
+			BaseClass.failTC++;
+			
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
+		}
+			
+	}
+	
+	public void validateElementEnabled(String[] element) {
+		String locatorBy = element[0].toLowerCase();
+		String disabled = "false";
+		if (locatorBy == "accessibilityid") {
+			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+			try {
+				disabled = elm.getAttribute("enabled");
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
+				disabled = elm.getAttribute("enabled");
+			}
+		}
+		else if (locatorBy == "xpath") {
+			WebElement elm = driver.findElement(AppiumBy.xpath(element[2]));
+			try {
+				disabled = elm.getAttribute("enabled");
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.xpath(element[2]));
+				disabled = elm.getAttribute("enabled");
+			}
+		}
+		else if (locatorBy == "id") {
+			WebElement elm = driver.findElement(AppiumBy.id(element[2]));
+			try {
+				disabled = elm.getAttribute("enabled");
+			} catch (StaleElementReferenceException e) {
+				elm = driver.findElement(AppiumBy.id(element[2]));
+				disabled = elm.getAttribute("enabled");
+			}
+		}
+		
+		if (disabled.contentEquals("true")) {
+			System.out.println(element[1] + " is enabled");
+			ExtentReportsUtil.pass(element[1] + " is enabled");	
+			
+			ExtentReportsUtil.logger.log(LogStatus.PASS, 
+					ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
+		}
+		else {
+			System.out.println(element[1] + " is disabled");
+			ExtentReportsUtil.fail(element[1] + " is disabled");
+			BaseClass.failTC++;
+			
+			ExtentReportsUtil.logger.log(LogStatus.FAIL, 
+					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
+		}
+			
+	}
+	
 	public void longPressElement(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		JavascriptExecutor js = (JavascriptExecutor) driver;

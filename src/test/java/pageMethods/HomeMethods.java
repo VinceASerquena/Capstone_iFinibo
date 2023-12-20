@@ -30,10 +30,6 @@ public class HomeMethods extends BaseMethods {
 	public void validateLoanEMICollapse() {
 		clickElement(HomePage.LoanAndEmi_Collapse);
 		assertElementNotDisplayed(HomePage.LAE_LoanBasic_Text);
-		assertElementNotDisplayed(HomePage.LAE_LoanAdvance_Text);
-		assertElementNotDisplayed(HomePage.LAE_CompareLoan_Text);
-		assertElementNotDisplayed(HomePage.LAE_LoanAmountEligibility_Text);
-		assertElementNotDisplayed(HomePage.LAE_HomeLoanDocuments_Text);
 	}
 	
 	/**

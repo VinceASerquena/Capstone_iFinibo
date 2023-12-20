@@ -73,7 +73,8 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 		lam.assertElementNotDisplayed(LoanAmountPage.Result_Header);
 		
 		ExtentReportsUtil.info("Enter Loan Details");
-		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), data1.getAnnualInterestRate(), data1.getLoanDuration());
+		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
+				data1.getAnnualInterestRate(), data1.getLoanDuration());
 		lam.enterLoanTerms(data1.getLoanTerm());
 		lam.clickElement(LoanAmountPage.Calculate_Button);
 		
@@ -143,9 +144,6 @@ public class TC01_ValidateLoanAndEMI extends BaseClass {
 		vlm.validateLoanDetailsYearlyTable();
 		vlm.validateLoanDetailsMonthlyTable();
 		vlm.validateLoanDetailsGraph();
-		
-		vlm.navigateBack();
-		vlm.navigateBack();
 	
 	}
 }

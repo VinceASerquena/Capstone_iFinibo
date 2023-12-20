@@ -42,51 +42,39 @@ public class TC01_InvalidLoanAndEMI extends BaseClass {
 		lam.validateLoanAmount();
 		
 		//ENTER INVALID INPUTS
-		ExtentReportsUtil.info("Enter Loan Details");
+		ExtentReportsUtil.info("Enter Loan Details - Invalid Characters");
+		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
+				data1.getAnnualInterestRate(), data1.getLoanDuration());
+		//VALIDATE CALCULATE BUTTON IS DISABLED
+		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
+		
+		//ENTER INVALID INPUTS
+		ExtentReportsUtil.info("Enter Loan Details - Invalid Interest Rate");
+		data1.setCounter();
+		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
+				data1.getAnnualInterestRate(), data1.getLoanDuration());
+		//VALIDATE CALCULATE BUTTON IS DISABLED
+		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
+		
+		//ENTER INVALID INPUTS
+		ExtentReportsUtil.info("Enter Loan Details - Invalid Loan Term Duration(Years)");
+		data1.setCounter();
 		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
 				data1.getAnnualInterestRate(), data1.getLoanDuration());
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Months);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Years);
-		lam.clickElement(LoanAmountPage.Calculate_Button);
 		//VALIDATE CALCULATE BUTTON IS DISABLED
+		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
 		
 		//ENTER INVALID INPUTS
-		ExtentReportsUtil.info("Enter Loan Details");
+		ExtentReportsUtil.info("Enter Loan Details - Invalid Loan Term Duration(Months)");
 		data1.setCounter();
 		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
 				data1.getAnnualInterestRate(), data1.getLoanDuration());
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
 		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Months);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Years);
-		lam.clickElement(LoanAmountPage.Calculate_Button);
 		//VALIDATE CALCULATE BUTTON IS DISABLED
-		
-		//ENTER INVALID INPUTS
-		ExtentReportsUtil.info("Enter Loan Details");
-		data1.setCounter();
-		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
-				data1.getAnnualInterestRate(), data1.getLoanDuration());
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Months);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Years);
-		lam.clickElement(LoanAmountPage.Calculate_Button);
-		//VALIDATE CALCULATE BUTTON IS DISABLED
-		
-		//ENTER INVALID INPUTS
-		ExtentReportsUtil.info("Enter Loan Details");
-		data1.setCounter();
-		lam.enterLoanDetailsTextbox(data1.getMonthlyPayment(), 
-				data1.getAnnualInterestRate(), data1.getLoanDuration());
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Months);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown);
-		lam.clickElement(LoanAmountPage.LoanTerm_Dropdown_Years);
-		lam.clickElement(LoanAmountPage.Calculate_Button);
-		//VALIDATE CALCULATE BUTTON IS DISABLED
+		lam.validateElementIsDisabled(LoanAmountPage.Calculate_Button);
 		
 		data1.resetCounter();
 	}
@@ -120,6 +108,7 @@ public class TC01_InvalidLoanAndEMI extends BaseClass {
 				data2.getAnnualInterstRate(),
 				data2.getLoanDuration());
 		//VALIDATE CALCULATE BUTTON
+		vlm.validateElementIsDisabled(VehicleLoanPage.Calculate_Button);
 		
 	
 	}
