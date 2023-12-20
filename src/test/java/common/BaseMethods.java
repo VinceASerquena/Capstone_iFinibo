@@ -74,6 +74,9 @@ public class BaseMethods {
 		return screenshotLoc;
 	}
 	
+	/**
+	 * Navigate to Previous Screen
+	 */
 	public void navigateBack() {
 		driver.navigate().back();
 		System.out.println("Navigated to Previous page");
@@ -82,6 +85,9 @@ public class BaseMethods {
 				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
+	/**
+	 * Press Back Key of Device
+	 */
 	public void pressBackKey() {
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		System.out.println("Pressed Back Key");
@@ -90,6 +96,10 @@ public class BaseMethods {
 				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
+	/**
+	 * Click on text based on paramaterd
+	 * @param value
+	 */
 	public void clickOnText(String value) {
 		WebElement ele = driver.findElement(AppiumBy.xpath("//*[@text = '"+ value +"']"));
 		boolean clicked = false;
@@ -119,6 +129,10 @@ public class BaseMethods {
 		}
 	}
 	
+	/**
+	 * Click on element based on given parameter
+	 * @param element
+	 */
 	public void clickElement(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		boolean clicked = false;
@@ -174,6 +188,11 @@ public class BaseMethods {
 		
 	}
 	
+	/**
+	 * Send text to Element
+	 * @param element
+	 * @param value
+	 */
 	public void sendTextToElement(String[] element, String value) {
 		String locatorBy = element[0].toLowerCase();
 		boolean enteredText = false;
@@ -235,6 +254,11 @@ public class BaseMethods {
 		}
 	}
 	
+	/**
+	 * Validate if element's text is equal to expected value
+	 * @param element
+	 * @param expectedValue
+	 */
 	public void validateIfCorrectText(String[] element, String expectedValue) {
 		String locatorBy = element[0].toLowerCase();
 		String actualValue = null;
@@ -285,6 +309,10 @@ public class BaseMethods {
 		
 	}
 	
+	/**
+	 * Validate if element is disabled
+	 * @param element
+	 */
 	public void validateElementIsDisabled(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		String disabled = "true";
@@ -334,6 +362,10 @@ public class BaseMethods {
 			
 	}
 	
+	/**
+	 * Validate if element is enabled
+	 * @param element
+	 */
 	public void validateElementEnabled(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		String disabled = "false";
@@ -383,6 +415,9 @@ public class BaseMethods {
 			
 	}
 	
+	/**
+	 * @param element
+	 */
 	public void longPressElement(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -458,6 +493,10 @@ public class BaseMethods {
 		
 	}
 	
+	/**
+	 * Validate if element is displayed
+	 * @param element
+	 */
 	public void assertElementDisplayed(String[] element) {
 		WebElement elm;
 		boolean display = false;
@@ -509,6 +548,10 @@ public class BaseMethods {
 		}
 	}
 	
+	/**
+	 * Validate element is not displayed
+	 * @param element
+	 */
 	public void assertElementNotDisplayed(String[] element) {
 		boolean displayed = true;
 		displayed = isDisplayed(element);
@@ -528,6 +571,12 @@ public class BaseMethods {
 					ExtentReportsUtil.logger.addScreenCapture(failedGetScreenshot()));
 		}
 	}
+	
+	/**
+	 * Return true if element is displayed
+	 * @param element
+	 * @return
+	 */
 	public boolean isDisplayed(String[] element) {
 		try {
 			if (element[0] == "accessibilityid") {
@@ -545,6 +594,10 @@ public class BaseMethods {
 		}
 	}
 	
+	/**
+	 * Scroll down gesture
+	 * @return
+	 */
 	public boolean scrollDownGesture() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, Object> params = new HashMap<>();
@@ -560,6 +613,10 @@ public class BaseMethods {
 		return canScrollMore;
 	}
 	
+	/**
+	 * Scroll to Element by UIAutomator
+	 * @param element
+	 */
 	public void scrollToElementByUIAutomator(String[] element) {
 		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+element[2]+")"));
 		System.out.println("Scrolled to: " + element[1]);
@@ -568,6 +625,10 @@ public class BaseMethods {
 				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
+	/**
+	 * Scroll to Text
+	 * @param text
+	 */
 	public void scrollToText(String text) {
 		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
 		System.out.println("Scrolled to Text: " + text);
@@ -576,6 +637,11 @@ public class BaseMethods {
 				ExtentReportsUtil.logger.addScreenCapture(passedGetScreenshot()));
 	}
 	
+	/**
+	 * Fling Gesture based on Element
+	 * @param element
+	 * @return
+	 */
 	public boolean flingGesture(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		boolean canScrollMore = true;
@@ -608,6 +674,12 @@ public class BaseMethods {
 		return canScrollMore;
 	}
 	
+	/**
+	 * Drag gesture based on element and given coordinates
+	 * @param element
+	 * @param coordinateX
+	 * @param coordinateY
+	 */
 	public void dragGesture(String[] element, int coordinateX, int coordinateY) {
 		String locatorBy = element[0].toLowerCase();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -637,6 +709,10 @@ public class BaseMethods {
 		}
 	}
 	
+	/**
+	 * Get elements text by Xpath
+	 * @param locatorByXpath
+	 */
 	public void getElementsTextByXpath(String locatorByXpath) {
 		List<WebElement> elements = driver.findElements(By.xpath(locatorByXpath));
         
@@ -646,6 +722,11 @@ public class BaseMethods {
 		}
 	}
 	
+	/**
+	 * Get Element Text
+	 * @param element
+	 * @return
+	 */
 	public String getElementText(String element[]) {
 		WebElement elm;
 		String elmtext = null;
@@ -659,6 +740,10 @@ public class BaseMethods {
 		return elmtext;
 	}
 	
+	/**
+	 * Move to Element
+	 * @param ele
+	 */
 	public void moveToElement(String[] ele) {
 		
 		String locatorBy = ele[0].toLowerCase();
