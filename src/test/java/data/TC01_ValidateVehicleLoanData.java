@@ -1,6 +1,6 @@
 package data;
 
-import common.Utils;
+import utils.Utils;
 
 public class TC01_ValidateVehicleLoanData extends Utils {
 	

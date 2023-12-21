@@ -32,6 +32,7 @@ import utils.ExtentReportsUtil;
 public class BaseMethods {
 	protected AndroidDriver driver;
 	protected WebDriverWait wait;
+	public static boolean status;
 	
 	public BaseMethods(AndroidDriver driver) {
 		this.driver = driver;
@@ -102,17 +103,17 @@ public class BaseMethods {
 	 */
 	public void clickOnText(String value) {
 		WebElement ele = driver.findElement(AppiumBy.xpath("//*[@text = '"+ value +"']"));
-		boolean clicked = false;
+		status = false;
 		try {
 			ele.click();
-			clicked = true;
+			status = true;
 		} catch (StaleElementReferenceException e) {
 			ele = driver.findElement(AppiumBy.xpath("//*[text() = '"+ value +"']"));
 			ele.click();
-			clicked = true;
+			status = true;
 		}
 		
-		if (clicked == true) {
+		if (status == true) {
 			System.out.println("\"" +value + "\" text was Clicked");
 			ExtentReportsUtil.pass("\"" +value + "\" text was Clicked");
 			
@@ -135,42 +136,42 @@ public class BaseMethods {
 	 */
 	public void clickElement(String[] element) {
 		String locatorBy = element[0].toLowerCase();
-		boolean clicked = false;
+		status = false;
 		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				elm.click();
-				clicked = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				elm.click();
-				clicked = true;
+				status = true;
 			}	
 		}
 		else if (locatorBy == "id") {
 			WebElement elm = driver.findElement(AppiumBy.id(element[2]));
 			try {
 				elm.click();
-				clicked = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				elm.click();
-				clicked = true;
+				status = true;
 			}	
 		}
 		else if (locatorBy == "xpath") {
 			WebElement elm = driver.findElement(AppiumBy.xpath(element[2]));
 			try {
 				elm.click();
-				clicked = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				elm.click();
-				clicked = true;
+				status = true;
 			}	
 		}
 		
-		if (clicked == true) {
+		if (status == true) {
 			System.out.println(element[1] + " was Clicked");
 			ExtentReportsUtil.pass(element[1] + " was Clicked");
 			
@@ -195,18 +196,18 @@ public class BaseMethods {
 	 */
 	public void sendTextToElement(String[] element, String value) {
 		String locatorBy = element[0].toLowerCase();
-		boolean enteredText = false;
+		status = false;
 		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 			try {
 				elm.clear();
 				elm.sendKeys(value);
-				enteredText = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				elm.clear();
 				elm.sendKeys(value);			
-				enteredText = true;
+				status = true;
 			}
 		}
 		else if (locatorBy == "xpath") {
@@ -214,12 +215,12 @@ public class BaseMethods {
 			try {
 				elm.clear();
 				elm.sendKeys(value);			
-				enteredText = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				elm.clear();
 				elm.sendKeys(value);			
-				enteredText = true;
+				status = true;
 			}
 
 		}
@@ -228,16 +229,16 @@ public class BaseMethods {
 			try {
 				elm.clear();
 				elm.sendKeys(value);			
-				enteredText = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				elm.clear();
 				elm.sendKeys(value);			
-				enteredText = true;
+				status = true;
 			}
 		}
 		
-		if (enteredText == true) {
+		if (status == true) {
 			System.out.println("Send text value to element: " + element[1]);	
 			ExtentReportsUtil.pass("Send text value to element: " + element[1]);
 			
@@ -421,7 +422,7 @@ public class BaseMethods {
 	public void longPressElement(String[] element) {
 		String locatorBy = element[0].toLowerCase();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		boolean longPressed = false;
+		status = false;
 		
 		if (locatorBy == "accessibilityid") {
 			WebElement elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
@@ -430,14 +431,14 @@ public class BaseMethods {
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				longPressed = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
 				Map<String, Object> params = new HashMap<>();
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				longPressed = true;
+				status = true;
 			}
 		}
 		else if (locatorBy == "xpath") {
@@ -447,14 +448,14 @@ public class BaseMethods {
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				longPressed = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
 				Map<String, Object> params = new HashMap<>();
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				longPressed = true;
+				status = true;
 			}
 		}
 		else if (locatorBy == "id") {
@@ -464,18 +465,18 @@ public class BaseMethods {
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				longPressed = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
 				Map<String, Object> params = new HashMap<>();
 				params.put("elementId", ((RemoteWebElement) elm).getId());
 				params.put("duration", 2000);
 				js.executeScript("mobile: longClickGesture", params);
-				longPressed = true;
+				status = true;
 			}
 		}
 		
-		if (longPressed == true) {
+		if (status == true) {
 			System.out.println(element[1] + " was long pressed");
 			ExtentReportsUtil.pass(element[1] + " was long pressed");
 			
@@ -499,39 +500,39 @@ public class BaseMethods {
 	 */
 	public void assertElementDisplayed(String[] element) {
 		WebElement elm;
-		boolean display = false;
+		status = false;
 		
 		if (element[0] == "accessibilityid") {
 			try {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
-				display = elm.isDisplayed();
+				status = elm.isDisplayed();
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.accessibilityId(element[2]));
-				display = elm.isDisplayed();
+				status = elm.isDisplayed();
 			}
 			
 		}
 		else if (element[0] == "id") {
 			try {
 				elm = driver.findElement(AppiumBy.id(element[2]));
-				display = elm.isDisplayed();
+				status = elm.isDisplayed();
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.id(element[2]));
-				display = elm.isDisplayed();
+				status = elm.isDisplayed();
 			}
 		}
 		
 		else if (element[0] == "xpath") {
 			try {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
-				display = elm.isDisplayed();
+				status = elm.isDisplayed();
 			} catch (StaleElementReferenceException e) {
 				elm = driver.findElement(AppiumBy.xpath(element[2]));
-				display = elm.isDisplayed();
+				status = elm.isDisplayed();
 			}
 		}
 		
-		if (display == true) {
+		if (status == true) {
 			System.out.println(element[1] + " is displayed");
 			ExtentReportsUtil.pass(element[1] + " is displayed");
 			
@@ -553,9 +554,9 @@ public class BaseMethods {
 	 * @param element
 	 */
 	public void assertElementNotDisplayed(String[] element) {
-		boolean displayed = true;
-		displayed = isDisplayed(element);
-		if (displayed == false) {
+		status = true;
+		status = isDisplayed(element);
+		if (status == false) {
 			System.out.println(element[1] + " is not displayed");
 			ExtentReportsUtil.pass(element[1] + " is not displayed");
 			
@@ -747,7 +748,7 @@ public class BaseMethods {
 	public void moveToElement(String[] ele) {
 		
 		String locatorBy = ele[0].toLowerCase();
-		boolean movedElement = false;
+		status = false;
 		
 		if (locatorBy == "accessibilityid") {
 			WebElement element = driver.findElement(AppiumBy.accessibilityId(ele[2]));
@@ -755,13 +756,13 @@ public class BaseMethods {
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				movedElement = true;				
+				status = true;				
 			} catch (StaleElementReferenceException e) {
 				element = driver.findElement(AppiumBy.accessibilityId(ele[2]));
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				movedElement = true;
+				status = true;
 			}
 		}
 		else if (locatorBy == "id") {
@@ -770,13 +771,13 @@ public class BaseMethods {
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				movedElement = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				element = driver.findElement(AppiumBy.id(ele[2]));
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				movedElement = true;
+				status = true;
 			}
 		}
 		else if (locatorBy == "xpath") {
@@ -785,18 +786,18 @@ public class BaseMethods {
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				movedElement = true;
+				status = true;
 			} catch (StaleElementReferenceException e) {
 				element = driver.findElement(AppiumBy.xpath(ele[2]));
 				Actions action = new Actions(driver);
 				action.moveToElement(element);
 				action.perform();	
-				movedElement = true;
+				status = true;
 			}
 			
 		}
 		
-		if (movedElement == true) {
+		if (status == true) {
 			System.out.println("Moved to element: " + ele[1]);
 			ExtentReportsUtil.pass("Moved to element: " + ele[1]);
 			
