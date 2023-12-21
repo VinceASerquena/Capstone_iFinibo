@@ -3,7 +3,7 @@
 <suite name="iFinibo Automate">
     <test name="Test Case - Validate Loan and EMI">
         <classes>
-			<class name="scripts.TC01_ValidateLoanAndEMI">
+			<class name="scripts.Fin_01_ValidateHomePage">
 				<methods>
 					<include name="Fin_01"/>
 				</methods>
@@ -12,7 +12,7 @@
     </test>
     <test name="Test Case - Validate Loan Basic">
         <classes>
-			<class name="scripts.TC01_ValidateLoanAndEMI">
+			<class name="scripts.Fin_02_ValidateLoanBasicPage">
 				<methods>
 					<include name="Fin_02"/>
 				</methods>
@@ -21,7 +21,7 @@
     </test>
     <test name="Test Case - Validate Vehicle Loan">
         <classes>
-			<class name="scripts.TC01_ValidateLoanAndEMI">
+			<class name="scripts.Fin_03_ValidateVehicleLoanPage">
 				<methods>
 					<include name="Fin_03"/>
 				</methods>
@@ -30,7 +30,7 @@
     </test>
     <test name="Test Case - Invalid Inputs - Loan Basic Page">
         <classes>
-			<class name="scripts.TC01_InvalidLoanAndEMI">
+			<class name="scripts.Fin_04_InvalidInputsLoanBasicPage">
 				<methods>
 					<include name="Fin_04"/>
 				</methods>
@@ -39,7 +39,7 @@
     </test>
     <test name="Test Case - Invalid Inputs - Vehicle Loan Page">
         <classes>
-			<class name="scripts.TC01_InvalidLoanAndEMI">
+			<class name="scripts.Fin_05_InvalidInputsVehicleLoanPage">
 				<methods>
 					<include name="Fin_05"/>
 				</methods>
