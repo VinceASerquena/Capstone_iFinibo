@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="iFinibo Automate">
+    <test name="Test Case - Validate Loan and EMI">
+        <classes>
+			<class name="scripts.Fin_01_ValidateHomePage">
+				<methods>
+					<include name="Fin_01"/>
+				</methods>
+			</class>
+        </classes>
+    </test>
+    <test name="Test Case - Validate Loan Basic">
+        <classes>
+			<class name="scripts.Fin_02_ValidateLoanBasicPage">
+				<methods>
+					<include name="Fin_02"/>
+				</methods>
+			</class>
+        </classes>
+    </test>
+    <test name="Test Case - Validate Vehicle Loan">
+        <classes>
+			<class name="scripts.Fin_03_ValidateVehicleLoanPage">
+				<methods>
+					<include name="Fin_03"/>
+				</methods>
+			</class>
+        </classes>
+    </test>
+</suite>
